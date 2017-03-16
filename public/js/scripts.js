@@ -1,6 +1,10 @@
 $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
+    var USER_TYPE = $('#auth_id').data('usertype');
     loadClientCompaniesDataTable();
+    if(USER_TYPE == 1){
+        $('.btnedit').prop('disabled',false);
+    }
     $('#addcompany').on('click',function(){
         $('#companyModal').modal('show');
     });
@@ -67,5 +71,11 @@ $('document').ready(function(){
     });
 });
 function loadClientCompaniesDataTable(){
-    $('#tbl_company').DataTable();
+    $('#tbl_company').DataTable({
+        'aoColumnDefs' : [
+            { 'bSortable': false, 'aTargets': [ 3 ] },
+            { 'bSortable': false, 'aTargets': [ 4 ] },
+            { 'bSortable': false, 'aTargets': [ 5 ] }
+        ]
+    });
 }

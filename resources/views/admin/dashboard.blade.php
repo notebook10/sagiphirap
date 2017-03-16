@@ -29,7 +29,7 @@
     {{--<a href="logout" class="btn btn-danger">Logout</a>--}}
     <button id="addcompany" class="btn btn-primary ">ADD COMPANY</button>
     {{--<p>Current User: <i>{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}</i></p>--}}
-    <input type="hidden" id="auth_id" value="{{ Auth::user()->id }}">
+    <input type="hidden" id="auth_id" value="{{ Auth::user()->id }}" data-usertype="{{ Auth::user()->user_type }}">
     <table id="tbl_company" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
