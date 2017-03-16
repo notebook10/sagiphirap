@@ -16,7 +16,11 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome {{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a id="createAccount"><span class="glyphicon glyphicon-user"></span> Create Account</a></li>
+                        <?php
+                            if(Auth::user()->user_type == 1){
+                                echo "<li><a id='createAccount'><span class='glyphicon glyphicon-user'></span> Create Account</a></li>";
+                            }
+                        ?>
                         <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                 </li>
