@@ -55,7 +55,7 @@ class HomeController extends Controller
             'email' => $request->input('email'),
             'contact' => $request->input('contact'),
             'address' => $request->input('address'),
-            'user_type' => $request->input('user_type'),
+            'user_type' => 2,
             'password' => $request->input('password')
         );
         $user = new User();
