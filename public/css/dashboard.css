@@ -1,0 +1,12 @@
+#createAccount {
+    cursor: pointer;
+}
+#addcompany {
+    margin-bottom: 10px;
+}
+.modal-header .close {
+    margin-top: -2px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
