@@ -6,8 +6,8 @@
     Contact Number <input type="text" name="contact"><br/>
     Address <textarea name="address"></textarea><br/>
     Email<input type="email" name="email"><br/>
-    User Type<input type="text" name="user_type"><br/>
+    User Type<input type="text" name="user_type"disabled value="2"><br/>
     Password<input type="password" name="password"><br/>
-    Confirm Password<input type="password" name="cpassword"><br/>
+    {{--Confirm Password<input type="hidden" name="cpassword"><br/>--}}
     <input type="submit" value="Save">
 </form>

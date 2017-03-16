@@ -32,6 +32,8 @@ class User extends Authenticatable
         $currentuser = User::where('id',$id)->first();
         if($currentuser->user_type == 1){
             return 'admin/dashboard';
+        }else if($currentuser->user_type == 2){
+            return 'admin/dashboard';
         }
     }
 }
