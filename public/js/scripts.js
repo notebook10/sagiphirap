@@ -6,13 +6,41 @@ $('document').ready(function(){
         $('.btnedit').prop('disabled',false);
     }
     $('#addcompany').on('click',function(){
+        clearForm();
+        $('#operation').val(0);
+        $('#id').val('');
+        $('#companyModal h4.modal-title').text('Add Client Company');
         $('#companyModal').modal('show');
     });
     $('#createAccount').on('click',function(){
         $('#registerModal').modal('show');
     });
     $('.btnedit').on('click',function(){
-        swal("Here's a message!", "Not yet available");
+        clearForm();
+        $('#id').val($(this).data('id'));
+        var id = $('#id').val();
+        $('#operation').val(1);
+        $('#companyModal h4.modal-title').text('Edit Client Company');
+        $.ajax({
+            'url' : BASE_URL + '/admin/getcompanydata',
+            type : 'POST',
+            data : {
+                _token : $('[name="csrf_token"]').attr('content'),
+                id : id
+            },
+            success : function(data){
+                $('h4.modal-title').text(data['name']);
+                $('#companyModal').modal('show');
+                $('#comp_name').val(data['name']);
+                $('#comp_desc').val(data['desc']);
+                $('#comp_contact_person').val(data['cperson']);
+                $('#comp_contact_number').val(data['cnumber']);
+                $('#comp_address').val(data['caddress']);
+            },
+            error : function(xhr,asd,error){
+                console.log(error);
+            }
+        });
     });
     $('#frmcompany').validate({
         rules : {
@@ -30,7 +58,7 @@ $('document').ready(function(){
         if($('#frmcompany').valid()){
             swal({
                     title: "Save?",
-                    text: "Save ba?",
+                    text: "Are you sure you want to save this?",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
@@ -46,6 +74,8 @@ $('document').ready(function(){
                             type : 'POST',
                             data : {
                                 _token : $('[name="csrf_token"]').attr('content'),
+                                operation : $('#operation').val(),
+                                id : $('#id').val(),
                                 name : $('#comp_name').val(),
                                 desc : $('#comp_desc').val(),
                                 cperson : $('#comp_contact_person').val(),
@@ -69,7 +99,15 @@ $('document').ready(function(){
                 });
         }
     });
+    $('.close_modal').on('click',function(){
+        clearForm();
+    });
+    $(".modal").on("hidden.bs.modal", function () {
+       clearForm();
+    });
 });
+
+
 function loadClientCompaniesDataTable(){
     $('#tbl_company').DataTable({
         'aoColumnDefs' : [
@@ -78,4 +116,9 @@ function loadClientCompaniesDataTable(){
             { 'bSortable': false, 'aTargets': [ 5 ] }
         ]
     });
+}
+function clearForm(){
+    $('label.error').css('display','none');
+    var form = $('.clear_form');
+    form[0].reset();
 }

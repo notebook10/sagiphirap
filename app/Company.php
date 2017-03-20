@@ -22,4 +22,14 @@ class Company extends Model
         $insert->agent_id = $dataArray['agentid'];
         $insert->save();
     }
+    public function editCompany($dataArray,$id){
+        return DB::table($this->table)
+            ->where($this->primaryKey,$id)
+            ->update($dataArray);
+    }
+    public function getCompanyDataWithId($id){
+        return DB::table($this->table)
+            ->where('id',$id)
+            ->first();
+    }
 }
