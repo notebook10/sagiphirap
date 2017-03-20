@@ -40,7 +40,7 @@ class HomeController extends Controller
             }else{
                 return Redirect::to('/')
                     ->withErrors([
-                        'validate' => 'Invalid'
+                        'validate' => 'Wrong Email or Password!'
                     ]);
             }
         }
