@@ -44,12 +44,12 @@
         <tbody>
         @foreach($data as $key => $value)
             <tr>
-                <td>{{ $value->name }}</td>
-                <td>{{ $value->description }}</td>
-                <td>{{ $value->contact_person }}</td>
-                <td>{{ $value->contact_number }}</td>
-                <td>{{ $value->agent_id }}</td>
-                <td><button class="btn btn-success btnedit" data-id="{{ $value->id }}" data-agent="{{ $value->agent_id }}"
+                <td>{{ htmlspecialchars($value->name) }}</td>
+                <td>{{ htmlspecialchars($value->description) }}</td>
+                <td>{{ htmlspecialchars($value->contact_person) }}</td>
+                <td>{{ htmlspecialchars($value->contact_number) }}</td>
+                <td>{{ htmlspecialchars($value->agent_id) }}</td>
+                <td><button class="btn btn-success btnedit" data-id="{{ htmlspecialchars($value->id) }}" data-agent="{{ htmlspecialchars($value->agent_id) }}"
                             <?php
                             if(Auth::user()->id != $value->agent_id){
                             ?> disabled <?php
