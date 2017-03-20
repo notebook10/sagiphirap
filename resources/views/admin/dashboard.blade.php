@@ -45,7 +45,7 @@
         @foreach($data as $key => $value)
             <tr>
                 <td>{{ htmlspecialchars($value->name) }}</td>
-                <td>{{ htmlspecialchars($value->description) }}</td>
+                <td>{{ substr(htmlspecialchars($value->description),1,50) }}...</td>
                 <td>{{ htmlspecialchars($value->contact_person) }}</td>
                 <td>{{ htmlspecialchars($value->contact_number) }}</td>
                 <td>{{ htmlspecialchars($value->agent_id) }}</td>
