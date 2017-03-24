@@ -1,6 +1,8 @@
 $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
     var USER_TYPE = $('#auth_id').data('usertype');
+    var json = {"emailsent":"1","sendattachment":"","followupcall":"","statementofaccount":"","bankaccountinfo":"","lastpaid":""};
+    console.log(json);
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
         $('.btnedit').prop('disabled',false);
@@ -108,8 +110,14 @@ $('document').ready(function(){
     $(".checkbtn").on("click",function(){
         var chk = $(this).data("to");
         var btn = $(this).data("btn");
-        var json = {"emailsent":1,"sendattachment":1,"followupcall":1,"statementofaccount":1,"bankaccountinfo":1,"lastpaid":1};
-        $("#" + chk).is(":checked") ? $("#" + chk).prop("checked",false) : $("#" + chk).prop("checked",true);
+        var objName = chk.slice(4);
+        if($("#" + chk).is(":checked")){
+            $("#" + chk).prop("checked",false);
+        }else{
+            $("#" + chk).prop("checked",true);
+            json[objName] = "test";
+            console.log(json);
+        }
         $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
         console.log(json);
