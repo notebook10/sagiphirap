@@ -2,6 +2,8 @@
 Route::get('/','HomeController@index');
 Route::post('login','HomeController@login');
 Route::get('logout','HomeController@logout');
+Route::match(array('get','post'),'reset','EmailController@send');
+Route::match(array('get','post'),'testreset','EmailController@test');
 
 Route::group(['middleware' => ['auth']],function(){
     Route::group(['prefix' => 'admin'],function(){

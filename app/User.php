@@ -42,4 +42,9 @@ class User extends Authenticatable
             ->where('id',$id)
             ->first();
     }
+    public function reset($id,$dataArray){
+        return DB::table('users')
+            ->where('id',$id)
+            ->update($dataArray);
+    }
 }

@@ -9,7 +9,6 @@ class AdminController extends Controller
 {
     public function index(){}
     public function submitcompany(Request $request){
-        dd($request->all());
         $operation = $request->input('operation');
         $id = $request->input('id');
         $data = array(
@@ -25,8 +24,7 @@ class AdminController extends Controller
             'description' => $request->input('desc'),
             'contact_person' => $request->input('cperson'),
             'contact_number' => $request->input('cnumber'),
-            'contact_address' => $request->input('caddress'),
-            'agent_id' => Auth::user()->id
+            'contact_address' => $request->input('caddress')
         );
         $company = new Company();
         $operation == 0 ? $company->insertNewCompany($data) : $company->editCompany($data2,$id);
