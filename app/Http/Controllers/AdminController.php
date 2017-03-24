@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     public function index(){}
     public function submitcompany(Request $request){
+        dd($request->all());
         $operation = $request->input('operation');
         $id = $request->input('id');
         $data = array(

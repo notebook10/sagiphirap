@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Response;
+use DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -35,5 +36,10 @@ class User extends Authenticatable
         }else if($currentuser->user_type == 2){
             return 'admin/dashboard';
         }
+    }
+    public static function getuserbyid($id){
+        return DB::table('users')
+            ->where('id',$id)
+            ->first();
     }
 }

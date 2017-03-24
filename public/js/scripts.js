@@ -1,7 +1,7 @@
 $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
     var USER_TYPE = $('#auth_id').data('usertype');
-    var json = {"emailsent":"1","sendattachment":"","followupcall":"","statementofaccount":"","bankaccountinfo":"","lastpaid":""};
+    var json = {"emailsent":"","sendattachment":"","followupcall":"","statementofaccount":"","bankaccountinfo":"","lastpaid":""};
     console.log(json);
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
@@ -85,6 +85,7 @@ $('document').ready(function(){
                                 caddress : $('#comp_address').val()
                             },
                             success : function(response){
+                                console.log(response);
                                 swal("Success!", "Successfully saved!", "success");
                                 $('button.confirm').on('click',function(){
                                     $('#companyModal').modal('hide');
@@ -113,14 +114,16 @@ $('document').ready(function(){
         var objName = chk.slice(4);
         if($("#" + chk).is(":checked")){
             $("#" + chk).prop("checked",false);
+            json[objName] = "";
+            console.log(json);
         }else{
             $("#" + chk).prop("checked",true);
-            json[objName] = "test";
+            json[objName] = "1";
             console.log(json);
         }
         $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
-        console.log(json);
+        $("#json").val(JSON.stringify(json));
     });
 });
 

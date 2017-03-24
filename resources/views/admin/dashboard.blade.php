@@ -1,3 +1,6 @@
+<?php
+    use App\User;
+?>
 <head>
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <input type="hidden" id="baseurl" value="{{ URL::to('/') }}">
@@ -45,10 +48,10 @@
         @foreach($data as $key => $value)
             <tr>
                 <td>{{ htmlspecialchars($value->name) }}</td>
-                <td>{{ substr(htmlspecialchars($value->description),1,50) }}...</td>
+                <td>{{ substr(htmlspecialchars($value->description),0,50) }}...</td>
                 <td>{{ htmlspecialchars($value->contact_person) }}</td>
                 <td>{{ htmlspecialchars($value->contact_number) }}</td>
-                <td>{{ htmlspecialchars($value->agent_id) }}</td>
+                <td>{{ \App\User::getuserbyid($value->agent_id)->firstname . " " . \App\User::getuserbyid($value->agent_id)->lastname }}</td>
                 <td><button class="btn btn-success btnedit" data-id="{{ htmlspecialchars($value->id) }}" data-agent="{{ htmlspecialchars($value->agent_id) }}"
                             <?php
                             if(Auth::user()->id != $value->agent_id){
