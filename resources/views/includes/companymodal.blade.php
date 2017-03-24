@@ -41,7 +41,7 @@
                                 <textarea class="form-control" id="comp_desc" name="comp_desc" placeholder="Enter Notes"></textarea>
                             </div>
                         </div>
-                        <div class="">
+                        <div id="chk_div">
                             <button type="button" id="btn_emailsent" class="btn checkbtn" data-to="chk_emailsent" data-btn="success">
                                 <span class="glyphicon chk_emailsent"></span> Send Email
                             </button>
