@@ -2,6 +2,7 @@ $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
     var USER_TYPE = $('#auth_id').data('usertype');
     var json = {"emailsent":"","sendattachment":"","followupcall":"","statementofaccount":"","bankaccountinfo":"","lastpaid":""};
+    var AUTH_ID = $("#auth_id").val();
     console.log(json);
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
@@ -9,6 +10,7 @@ $('document').ready(function(){
     }
     $('#addcompany').on('click',function(){
         clearForm();
+        enableinput();
         $('#operation').val(0);
         $('#id').val('');
         $('#companyModal h4.modal-title').text('Add Client Company');
@@ -31,6 +33,8 @@ $('document').ready(function(){
                 id : id
             },
             success : function(data){
+                var agentid = data['agent_id'];
+                disableinput(agentid);
                 $('h4.modal-title').text(data['name']);
                 $('#companyModal').modal('show');
                 $('#comp_name').val(data['name']);
@@ -125,6 +129,16 @@ $('document').ready(function(){
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
         $("#json").val(JSON.stringify(json));
     });
+    function disableinput($agentid){
+        if(AUTH_ID != $agentid){
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",true);
+        }else{
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
+        }
+    }
+    function enableinput(){
+        $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
+    }
 });
 
 

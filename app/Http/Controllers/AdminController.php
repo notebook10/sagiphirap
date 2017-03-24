@@ -37,6 +37,7 @@ class AdminController extends Controller
         $company = new Company();
         $row = $company->getCompanyDataWithId($id);
         $dataArray = [
+            'agent_id' => $row->agent_id,
             'name' => $row->name,
             'desc' => $row->description,
             'cperson' => $row->contact_person,

@@ -53,11 +53,11 @@
                 <td>{{ htmlspecialchars($value->contact_number) }}</td>
                 <td>{{ \App\User::getuserbyid($value->agent_id)->firstname . " " . \App\User::getuserbyid($value->agent_id)->lastname }}</td>
                 <td><button class="btn btn-success btnedit" data-id="{{ htmlspecialchars($value->id) }}" data-agent="{{ htmlspecialchars($value->agent_id) }}"
-                            <?php
-                            if(Auth::user()->id != $value->agent_id){
-                            ?> disabled <?php
-                        }
-                        ?>
+                            {{--<?php--}}
+                            {{--if(Auth::user()->id != $value->agent_id){--}}
+                            {{--?>  <?php--}}
+                        {{--}--}}
+                        {{--?>--}}
                     >EDIT</button> </td>
             </tr>
         @endforeach
