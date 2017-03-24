@@ -105,6 +105,15 @@ $('document').ready(function(){
     $(".modal").on("hidden.bs.modal", function () {
        clearForm();
     });
+    $(".checkbtn").on("click",function(){
+        var chk = $(this).data("to");
+        var btn = $(this).data("btn");
+        var json = {"emailsent":1,"sendattachment":1,"followupcall":1,"statementofaccount":1,"bankaccountinfo":1,"lastpaid":1};
+        $("#" + chk).is(":checked") ? $("#" + chk).prop("checked",false) : $("#" + chk).prop("checked",true);
+        $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
+        $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
+        console.log(json);
+    });
 });
 
 
@@ -121,4 +130,11 @@ function clearForm(){
     $('label.error').css('display','none');
     var form = $('.clear_form');
     form[0].reset();
+    $("span.glyphicon-check").removeClass("glyphicon-check");
+    $(".btn.checkbtn").removeClass("btn-success")
+        .removeClass("btn-primary")
+        .removeClass("btn-info")
+        .removeClass("btn-warning")
+        .removeClass("btn-danger")
+        .removeClass("btn-default");
 }
