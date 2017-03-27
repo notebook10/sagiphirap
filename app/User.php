@@ -61,4 +61,9 @@ class User extends Authenticatable
             ->where('id',$id)
             ->update($dataArray);
     }
+    public function editUser($dataArray, $id){
+        return DB::table('users')
+            ->where('id', $id)
+            ->update($dataArray);
+    }
 }

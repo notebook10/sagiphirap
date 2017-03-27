@@ -17,6 +17,7 @@ $('document').ready(function(){
         $('#companyModal').modal('show');
     });
     $('#createAccount').on('click',function(){
+        $('#operationregis').val(0);
         $('#registerModal').modal('show');
     });
     $('.btnedit').on('click',function(){

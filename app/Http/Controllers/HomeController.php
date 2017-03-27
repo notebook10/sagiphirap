@@ -49,6 +49,8 @@ class HomeController extends Controller
         return view('default/register');
     }
     public function insertuser(Request $request){
+        $idregis = $request->input('idregis');
+        $operationregis = $request->input('operation');
         $data = array(
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -58,9 +60,17 @@ class HomeController extends Controller
             'user_type' => 2,
             'password' => $request->input('password')
         );
+        $data2 = [
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'contact_number' => $request->input('contact'),
+            'address' => $request->input('address'),
+            'user_type' => $request->input('user_type')
+        ];
         $user = new User();
-        $user->insertuser($data);
-        return Redirect::to('/')->with('status', 'Profile updated!');
+        $operationregis == 1 ? $user->editUser($data2,$idregis) : $user->insertuser($data);
+        return $operationregis;
     }
     public function logout(){
         Auth::logout();

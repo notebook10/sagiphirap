@@ -65,8 +65,10 @@ $("document").ready(function(){
     $(".deleteuser").on("click", function(){
         swal("Error!","Wala pa","error");
     });
-    $(".edituser").on("click", function(){
+    $("body").delegate(".edituser","click", function(){
         var id  = $(this).data("id");
+        $("#idregis").val(id);
+        $("#operationregis").val(1);
         $("h1.modal-title.center-block").text("Edit User");
         $("#registerModal").modal("show");
         $("#password").prop('disabled', true);
