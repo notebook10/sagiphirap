@@ -12,8 +12,8 @@
             <div class="modal-body">
                 <form id="frm_register" name="frm_register" class="clear_form">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="text" name="operationregis" id="operationregis">
-                    <input type="text" name="idregis" id="idregis">
+                    <input type="hidden" name="operationregis" id="operationregis">
+                    <input type="hidden" name="idregis" id="idregis">
                     <div class="form-group">
                         <label for="firstname" class="form-control-label">First Name</label>
                         <input type="text" id="firstname" class="form-control" name="firstname">
