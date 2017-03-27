@@ -47,4 +47,18 @@ class User extends Authenticatable
             ->where('id',$id)
             ->update($dataArray);
     }
+    public function checkEmailIfExisting($email){
+        return DB::table("users")
+            ->where("email", $email)
+            ->first();
+    }
+    public function getalldata(){
+        return DB::table("users")
+            ->get();
+    }
+    public function changePassword($dataArray,$id){
+        return DB::table('users')
+            ->where('id',$id)
+            ->update($dataArray);
+    }
 }

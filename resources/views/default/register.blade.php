@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-control-label">Password</label>
-                        <input type="text" id="password" class="form-control" name="password">
+                        <input type="password" id="password" class="form-control" name="password">
                     </div>
 
                     <div class="modal-footer">

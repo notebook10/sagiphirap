@@ -11,6 +11,7 @@
             <input type="text" name="email" placeholder="Enter Email.." required>
             <input type="password" name="password" placeholder="Enter Password.." required>
             <input type="submit" class="login loginmodal-submit" value="LOGIN">
+            <a href="forgotpassword">Forget Password?</a>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

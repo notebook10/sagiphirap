@@ -74,4 +74,7 @@ class HomeController extends Controller
         );
         return view('admin/dashboard',$dataArray);
     }
+    public function forgotpassword(){
+        return view('default.forgotpassword');
+    }
 }

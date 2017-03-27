@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Company;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -43,5 +44,36 @@ class AdminController extends Controller
             'caddress' => $row->contact_address
         ];
         return $dataArray;
+    }
+    public function users(){
+        $users = new User();
+        $usersdata = $users->getalldata();
+        $dataArray = [
+            'users' => $usersdata
+        ];
+        return view('admin.users', $dataArray);
+    }
+    public function changepass(Request $request){
+        $id = $request->input("id");
+        $password = $request->input("password");
+        $data = [
+            'password' => bcrypt($password)
+        ];
+        $users = new User();
+        $foo = $users->changePassword($data, $id);
+        return $foo;
+    }
+    public function getuserdata(Request $request){
+        $id = $request->input("id");
+        $row = User::getuserbyid($id);
+        $data = [
+            'firstname' => $row->firstname,
+            'lastname' => $row->lastname,
+            'contact' => $row->contact_number,
+            'address' => $row->address,
+            'email' => $row->email,
+            'type' => $row->user_type
+        ];
+        return $data;
     }
 }

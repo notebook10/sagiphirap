@@ -21,6 +21,11 @@
                                 echo "<li><a id='createAccount'><span class='glyphicon glyphicon-user'></span> Create Account</a></li>";
                             }
                         ?>
+                        <?php
+                        if(Auth::user()->user_type == 1){
+                            echo "<li><a href='users'><span class='glyphicon glyphicon-globe'></span> Users</a> </li>";
+                        }
+                        ?>
                         <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                 </li>

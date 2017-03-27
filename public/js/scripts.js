@@ -90,7 +90,9 @@ $('document').ready(function(){
                             },
                             success : function(response){
                                 console.log(response);
-                                swal("Success!", "Successfully saved!", "success");
+                                var operation = $('#operation').val();
+                                var message = operation == 0 ? "saved" : "updated";
+                                swal("Success!", "Successfully " +  message + "!", "success");
                                 $('button.confirm').on('click',function(){
                                     $('#companyModal').modal('hide');
                                     location.reload();
@@ -101,7 +103,7 @@ $('document').ready(function(){
                             }
                         });
                     }else{
-                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+                        swal("Cancelled", "The data is safe :)", "error");
                     }
                 });
         }

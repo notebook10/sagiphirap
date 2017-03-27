@@ -2,29 +2,8 @@
     use App\User;
 ?>
 <head>
-    <meta name="csrf_token" content="{{ csrf_token() }}">
-    <input type="hidden" id="baseurl" value="{{ URL::to('/') }}">
-    <input type="hidden" id="token" value="{{ csrf_token() }}">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}">
-    <style>
-        tbody tr td{text-align: center;}
-        label.error{color:red;font-size:10px;}
-    </style>
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}">
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--}}
-    <script src="{{ asset('js/jquery-3.1.1.js') }}"></script>
-    <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
-    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--}}
-    {{--<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>--}}
-    <script src="{{ asset('js/jquery.datatables.js') }}"></script>
-    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+    @include("includes/important")
+    @include("includes/config")
     <script src="{{ asset('js/scripts.js') }}"></script>
 </head>
 @include('includes/header')
