@@ -44,7 +44,9 @@ class AdminController extends Controller
             'desc' => $row->description,
             'cperson' => $row->contact_person,
             'cnumber' => $row->contact_number,
-            'caddress' => $row->contact_address
+            'caddress' => $row->contact_address,
+            'state' => $row->state,
+            'paid' => $row->paid
         ];
         return $dataArray;
     }

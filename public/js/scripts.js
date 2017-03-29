@@ -44,6 +44,9 @@ $('document').ready(function(){
                 $('#comp_contact_person').val(data['cperson']);
                 $('#comp_contact_number').val(data['cnumber']);
                 $('#comp_address').val(data['caddress']);
+                $('#paid').val(data['paid']);
+                $('#json').val(data['state']);
+                setState(data['state']);
             },
             error : function(xhr,asd,error){
                 console.log(error);
@@ -171,4 +174,17 @@ function clearForm(){
         .removeClass("btn-warning")
         .removeClass("btn-danger")
         .removeClass("btn-default");
+}
+function setState($jsonData){
+    var obj = JSON.parse($jsonData);
+    $.each(obj, function(index, value){
+        if(value == 1){
+            var btn = $('#btn_' + index).data('btn');
+            $('#btn_' + index).addClass('btn-' + btn);
+            $('span.chk_' + index).addClass('glyphicon-check');
+            $('input#chk_' + index).prop('checked',true);
+        }else{
+
+        }
+    });
 }
