@@ -3,6 +3,7 @@ $('document').ready(function(){
     var USER_TYPE = $('#auth_id').data('usertype');
     var json = {"emailsent":"0","sendattachment":"0","followupcall":"0","statementofaccount":"0","bankaccountinfo":"0","lastpaid":"0"};
     var AUTH_ID = $("#auth_id").val();
+    var emailsent,sendattachment,followupcall,statementofaccount,bankaccountinfo,lastpaid;
     console.log(json);
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
@@ -67,6 +68,8 @@ $('document').ready(function(){
     });
     $('#btnSubmitCompany').on('click',function(){
         if($('#frmcompany').valid()){
+            // $("#json").val(JSON.stringify(json));
+            // validateJSON();
             swal({
                     title: "Save?",
                     text: "Are you sure you want to save this?",
@@ -92,7 +95,13 @@ $('document').ready(function(){
                                 cperson : $('#comp_contact_person').val(),
                                 cnumber : $('#comp_contact_number').val(),
                                 caddress : $('#comp_address').val(),
-                                json : $("#json").val()
+                                json : $("#json").val(),
+                                emailsent : $('#chk_emailsent').prop('checked') ? $('#chk_emailsent').val() : '',
+                                sendattachment : $('#chk_sendattachment').prop('checked') ? $('#chk_sendattachment').val() : '',
+                                followupcall : $('#chk_followupcall').prop('checked') ? $('#chk_followupcall').val() : '',
+                                statementofaccount : $('#chk_statementofaccount').prop('checked') ? $('#chk_statementofaccount').val() : '',
+                                bankaccountinfo : $('#chk_bankaccountinfo').prop('checked') ? $('#chk_bankaccountinfo').val() : '',
+                                lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : ''
                             },
                             success : function(response){
                                 console.log(response);
@@ -120,22 +129,43 @@ $('document').ready(function(){
     $(".modal").on("hidden.bs.modal", function () {
        clearForm();
     });
-    $(".checkbtn").on("click",function(){
+    $(".checkbtn").on("click",function(e){
         var chk = $(this).data("to");
         var btn = $(this).data("btn");
         var objName = chk.slice(4);
         if($("#" + chk).is(":checked")){
             $("#" + chk).prop("checked",false);
             json[objName] = "0";
-            console.log(json);
         }else{
             $("#" + chk).prop("checked",true);
             json[objName] = "1";
-            console.log(json);
+            switch(objName){
+                case "emailsent":
+                    emailsent = "1";
+                    break;
+                case "sendattachment":
+                    sendattachment = "1";
+                    break;
+                case "followupcall":
+                    followupcall = "1";
+                    break;
+                case "statementofaccount":
+                    statementofaccount = "1";
+                    break;
+                case "bankaccountinfo":
+                    bankaccountinfo = "1";
+                    break;
+                case "lastpaid":
+                    lastpaid = "1";
+                    break;
+                default:
+                    alert("default");
+                    break;
+            }
         }
         $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
-        $("#json").val(JSON.stringify(json));
+        // $("#json").val(JSON.stringify(json));
     });
     $("#btn_lastpaid").on("click",function(){
         // Last paid
@@ -150,6 +180,9 @@ $('document').ready(function(){
     }
     function enableinput(){
         $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
+    }
+    function validateJSON(){
+
     }
 });
 

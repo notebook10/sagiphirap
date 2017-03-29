@@ -45,35 +45,35 @@
                             <button type="button" id="btn_emailsent" class="btn checkbtn" data-to="chk_emailsent" data-btn="success">
                                 <span class="glyphicon chk_emailsent"></span> Send Email
                             </button>
-                            <input type="checkbox" name="chk_emailsent" id="chk_emailsent">
+                            <input type="checkbox" name="chk_emailsent" id="chk_emailsent" class="chkbox" value="1">
                             {{-------------Break--------------}}
                             <button type="button" id="btn_sendattachment" class="btn checkbtn" data-to="chk_sendattachment" data-btn="primary">
                                 <span class="glyphicon chk_sendattachment"></span> Send Attachment
                             </button>
-                            <input type="checkbox" name="chk_sendattachment" id="chk_sendattachment">
+                            <input type="checkbox" name="chk_sendattachment" id="chk_sendattachment" class="chkbox" value="1">
                             {{-------------Break--------------}}
                             <button type="button" id="btn_followupcall" class="btn checkbtn" data-to="chk_followupcall" data-btn="info">
                                 <span class="glyphicon chk_followupcall"></span> Follow-up call
                             </button>
-                            <input type="checkbox" name="chk_followupcall" id="chk_followupcall">
+                            <input type="checkbox" name="chk_followupcall" id="chk_followupcall" class="chkbox" value="1">
                             {{-------------Break--------------}}
                             <button type="button" id="btn_statementofaccount" class="btn checkbtn" data-to="chk_statementofaccount" data-btn="warning">
                                 <span class="glyphicon chk_statementofaccount"></span> Send Statement of Account
                             </button>
-                            <input type="checkbox" name="chk_statementofaccount" id="chk_statementofaccount">
+                            <input type="checkbox" name="chk_statementofaccount" id="chk_statementofaccount" class="chkbox" value="1">
                             {{-------------Break--------------}}
                             <button type="button" id="btn_bankaccountinfo" class="btn checkbtn" data-to="chk_bankaccountinfo" data-btn="danger">
                                 <span class="glyphicon chk_bankaccountinfo"></span> Send Bank Account Info
                             </button>
-                            <input type="checkbox" name="chk_bankaccountinfo" id="chk_bankaccountinfo">
+                            <input type="checkbox" name="chk_bankaccountinfo" id="chk_bankaccountinfo" class="chkbox" value="1">
                             {{-------------Break--------------}}
                             <button type="button" id="btn_lastpaid" class="btn checkbtn" data-to="chk_lastpaid" data-btn="default">
                                 <span class="glyphicon chk_lastpaid"></span> Last Paid
                             </button>
-                            <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid">
+                            <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid" class="chkbox" value="1">
                         </div>
-                        <input type="text" id="json" name="json">
-                        <input type="text" id="paid" name="paid">
+                        <input type="hidden" id="json" name="json">
+                        <input type="hidden" id="paid" name="paid">
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-danger close_modal" data-dismiss="modal" value="Close">

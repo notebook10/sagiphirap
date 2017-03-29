@@ -12,6 +12,15 @@ class AdminController extends Controller
     public function submitcompany(Request $request){
         $operation = $request->input('operation');
         $id = $request->input('id');
+        $arr = [
+            'emailsent' => $request->input('emailsent') ? $request->input('emailsent') : '0',
+            'sendattachment' => $request->input('sendattachment') ? $request->input('sendattachment') : '0',
+            'followupcall' => $request->input('followupcall') ? $request->input('followupcall') : '0',
+            'statementofaccount' => $request->input('statementofaccount') ? $request->input('statementofaccount') : '0',
+            'bankaccountinfo' => $request->input('bankaccountinfo') ? $request->input('bankaccountinfo') : '0',
+            'lastpaid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0'
+        ];
+        $json = json_encode($arr);
         $data = array(
             'name' => $request->input('name'),
             'description' => $request->input('desc'),
@@ -19,7 +28,7 @@ class AdminController extends Controller
             'cnumber' => $request->input('cnumber'),
             'address' => $request->input('caddress'),
             'agentid' => Auth::user()->id,
-            'state' => $request->input('json')
+            'state' => $json
         );
         $data2 = array(
             'name' => $request->input('name'),
@@ -28,8 +37,11 @@ class AdminController extends Controller
             'contact_number' => $request->input('cnumber'),
             'contact_address' => $request->input('caddress'),
             'status' => 1,
-            'state' => $request->input('json')
+            'state' => $json
         );
+//        $lastpaid = $request->input('json');
+//        $decode = json_decode($lastpaid);
+//        dd($decode->lastpaid);
         $company = new Company();
         $operation == 0 ? $company->insertNewCompany($data) : $company->editCompany($data2,$id);
 //        return Redirect::to('/')->with('message','Success');

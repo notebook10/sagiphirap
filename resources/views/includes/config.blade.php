@@ -8,6 +8,8 @@
 <style>
     tbody tr td, th{text-align: center;}
     label.error{color:red;font-size:10px;}
+    .chkbox{display: none;}
+    #json{width:800px;}
 </style>
 {{--  Javascript --}}
 <script src="{{ asset('js/jquery-3.1.1.js') }}"></script>
