@@ -72,7 +72,8 @@
                             </button>
                             <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid">
                         </div>
-                        <input type="text" id="json">
+                        <input type="text" id="json" name="json">
+                        <input type="text" id="paid" name="paid">
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-danger close_modal" data-dismiss="modal" value="Close">

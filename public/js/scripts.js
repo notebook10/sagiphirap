@@ -1,7 +1,7 @@
 $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
     var USER_TYPE = $('#auth_id').data('usertype');
-    var json = {"emailsent":"","sendattachment":"","followupcall":"","statementofaccount":"","bankaccountinfo":"","lastpaid":""};
+    var json = {"emailsent":"0","sendattachment":"0","followupcall":"0","statementofaccount":"0","bankaccountinfo":"0","lastpaid":"0"};
     var AUTH_ID = $("#auth_id").val();
     console.log(json);
     loadClientCompaniesDataTable();
@@ -14,6 +14,7 @@ $('document').ready(function(){
         $('#operation').val(0);
         $('#id').val('');
         $('#companyModal h4.modal-title').text('Add Client Company');
+        $('#json').val(JSON.stringify(json));
         $('#companyModal').modal('show');
     });
     $('#createAccount').on('click',function(){
@@ -87,7 +88,8 @@ $('document').ready(function(){
                                 desc : $('#comp_desc').val(),
                                 cperson : $('#comp_contact_person').val(),
                                 cnumber : $('#comp_contact_number').val(),
-                                caddress : $('#comp_address').val()
+                                caddress : $('#comp_address').val(),
+                                json : $("#json").val()
                             },
                             success : function(response){
                                 console.log(response);
@@ -121,7 +123,7 @@ $('document').ready(function(){
         var objName = chk.slice(4);
         if($("#" + chk).is(":checked")){
             $("#" + chk).prop("checked",false);
-            json[objName] = "";
+            json[objName] = "0";
             console.log(json);
         }else{
             $("#" + chk).prop("checked",true);
@@ -131,6 +133,10 @@ $('document').ready(function(){
         $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
         $("#json").val(JSON.stringify(json));
+    });
+    $("#btn_lastpaid").on("click",function(){
+        // Last paid
+        $("#paid").val(json.lastpaid);
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){

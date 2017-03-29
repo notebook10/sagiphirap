@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title center-block">Create Account</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

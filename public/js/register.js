@@ -45,7 +45,8 @@ $('document').ready(function(){
                     }
                 });
         }else{
-            alert('invalid');
+            // alert('invalid');
+            console.log('form invalid');
         }
     });
     $('#frm_register').validate({
@@ -61,10 +62,10 @@ $('document').ready(function(){
         }
     });
     $('.close_modal').on('click',function(){
-        clearForm();
+        clearFormRegister();
     });
     $(".modal").on("hidden.bs.modal", function () {
-        clearForm();
+        clearFormRegister();
     });
 });
 function clearFormRegister(){

@@ -70,6 +70,7 @@ $("document").ready(function(){
         $("#idregis").val(id);
         $("#operationregis").val(1);
         $("h1.modal-title.center-block").text("Edit User");
+        clearformpassword();
         $("#registerModal").modal("show");
         $("#password").prop('disabled', true);
         $.ajax({

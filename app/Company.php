@@ -10,7 +10,9 @@ class Company extends Model
     protected $table = 'company';
     protected $primaryKey = 'id';
     public function getAll(){
-        return DB::table($this->table)->get();
+        return DB::table($this->table)
+            ->where('status',1)
+            ->get();
     }
     public function insertNewCompany($dataArray){
         $insert = new Company();
@@ -20,6 +22,8 @@ class Company extends Model
         $insert->contact_number = $dataArray['cnumber'];
         $insert->contact_address = $dataArray['address'];
         $insert->agent_id = $dataArray['agentid'];
+        $insert->status = 1;
+        $insert->state = $dataArray['state'];
         $insert->save();
     }
     public function editCompany($dataArray,$id){

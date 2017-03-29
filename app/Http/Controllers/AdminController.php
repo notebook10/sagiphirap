@@ -18,14 +18,17 @@ class AdminController extends Controller
             'cperson' => $request->input('cperson'),
             'cnumber' => $request->input('cnumber'),
             'address' => $request->input('caddress'),
-            'agentid' => Auth::user()->id
+            'agentid' => Auth::user()->id,
+            'state' => $request->input('json')
         );
         $data2 = array(
             'name' => $request->input('name'),
             'description' => $request->input('desc'),
             'contact_person' => $request->input('cperson'),
             'contact_number' => $request->input('cnumber'),
-            'contact_address' => $request->input('caddress')
+            'contact_address' => $request->input('caddress'),
+            'status' => 1,
+            'state' => $request->input('json')
         );
         $company = new Company();
         $operation == 0 ? $company->insertNewCompany($data) : $company->editCompany($data2,$id);
