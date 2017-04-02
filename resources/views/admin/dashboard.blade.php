@@ -48,3 +48,4 @@
 
 @include('includes/companymodal')
 @include('default/register')
+@include('includes/filter_report_modal')

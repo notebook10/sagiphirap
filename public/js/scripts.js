@@ -3,8 +3,6 @@ $('document').ready(function(){
     var USER_TYPE = $('#auth_id').data('usertype');
     var json = {"emailsent":"0","sendattachment":"0","followupcall":"0","statementofaccount":"0","bankaccountinfo":"0","lastpaid":"0"};
     var AUTH_ID = $("#auth_id").val();
-    var emailsent,sendattachment,followupcall,statementofaccount,bankaccountinfo,lastpaid;
-    console.log(json);
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
         $('.btnedit').prop('disabled',false);
@@ -101,7 +99,8 @@ $('document').ready(function(){
                                 followupcall : $('#chk_followupcall').prop('checked') ? $('#chk_followupcall').val() : '',
                                 statementofaccount : $('#chk_statementofaccount').prop('checked') ? $('#chk_statementofaccount').val() : '',
                                 bankaccountinfo : $('#chk_bankaccountinfo').prop('checked') ? $('#chk_bankaccountinfo').val() : '',
-                                lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : ''
+                                lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
+                                paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : ''
                             },
                             success : function(response){
                                 console.log(response);
@@ -139,29 +138,6 @@ $('document').ready(function(){
         }else{
             $("#" + chk).prop("checked",true);
             json[objName] = "1";
-            switch(objName){
-                case "emailsent":
-                    emailsent = "1";
-                    break;
-                case "sendattachment":
-                    sendattachment = "1";
-                    break;
-                case "followupcall":
-                    followupcall = "1";
-                    break;
-                case "statementofaccount":
-                    statementofaccount = "1";
-                    break;
-                case "bankaccountinfo":
-                    bankaccountinfo = "1";
-                    break;
-                case "lastpaid":
-                    lastpaid = "1";
-                    break;
-                default:
-                    alert("default");
-                    break;
-            }
         }
         $(this).hasClass("btn-" + btn) ? $(this).removeClass("btn-" + btn) : $(this).addClass("btn-" + btn);
         $("span." + chk).hasClass("glyphicon-check") ? $("span." + chk).removeClass("glyphicon-check") : $("span." + chk).addClass("glyphicon-check");
@@ -169,20 +145,25 @@ $('document').ready(function(){
     });
     $("#btn_lastpaid").on("click",function(){
         // Last paid
+        alert(json.lastpaid);
         $("#paid").val(json.lastpaid);
+    });
+    $("#btnreport").on("click", function(){
+        $('#start_date').datepicker({
+            maxDate : new Date()
+        });
+        $('#end_date').datepicker();
+        $("#reportModal").modal("show");
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",true);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn").prop("disabled",true);
         }else{
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn").prop("disabled",false);
         }
     }
     function enableinput(){
         $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
-    }
-    function validateJSON(){
-
     }
 });
 

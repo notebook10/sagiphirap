@@ -37,7 +37,8 @@ class AdminController extends Controller
             'contact_number' => $request->input('cnumber'),
             'contact_address' => $request->input('caddress'),
             'status' => 1,
-            'state' => $json
+            'state' => $json,
+            'paid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0'
         );
 //        $lastpaid = $request->input('json');
 //        $decode = json_decode($lastpaid);
@@ -92,5 +93,14 @@ class AdminController extends Controller
             'type' => $row->user_type
         ];
         return $data;
+    }
+    public function submitfilter(Request $request){
+//        strtotime(date('Y-m-d', strtotime($foo->created_at, 0))))
+        $filter = $request->selectReport;
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $company = new Company();
+        $filteredData = $company->filter($filter);
+        dd($filteredData);
     }
 }

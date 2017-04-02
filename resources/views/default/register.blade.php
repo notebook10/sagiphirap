@@ -53,29 +53,3 @@
         </div>
     </div>
 </div>
-
-{{--<div id="registerModal" class="modal fade" role="dialog">--}}
-    {{--<div class="modal-dialog modal-lg">--}}
-
-        {{--<div class="modal-content">--}}
-            {{--<div class="modal-header">--}}
-                {{--<button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-                {{--<h4 class="modal-title">Create Account</h4>--}}
-            {{--</div>--}}
-            {{--<form class="form-horizontal" id="frmcompany" name="frmcompany" method="post" action="submitcompany">--}}
-            {{--<form action="insertuser" method="post">--}}
-                {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-                {{--Firstname<input type="text" name="firstname"><br/>--}}
-                {{--Lastname<input type="text" name="lastname"><br/>--}}
-                {{--Contact Number <input type="text" name="contact"><br/>--}}
-                {{--Address <textarea name="address"></textarea><br/>--}}
-                {{--Email<input type="email" name="email"><br/>--}}
-                {{--User Type<input type="text" name="user_type"disabled value="2"><br/>--}}
-                {{--Password<input type="password" name="password"><br/>--}}
-                {{--Confirm Password<input type="hidden" name="cpassword"><br/>--}}
-                {{--<input type="submit" value="Save">--}}
-            {{--</form>--}}
-        {{--</div>--}}
-
-    {{--</div>--}}
-{{--</div>--}}

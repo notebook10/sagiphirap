@@ -36,4 +36,12 @@ class Company extends Model
             ->where('id',$id)
             ->first();
     }
+    public function test(){
+        return DB::table($this->table)->where('id',42)->first();
+    }
+    public function filter($filter){
+        return DB::table($this->table)
+            ->where($filter,1)
+            ->get();
+    }
 }

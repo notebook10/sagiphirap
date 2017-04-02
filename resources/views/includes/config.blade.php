@@ -5,10 +5,11 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/dashboard.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.min.css') }}">
 <style>
     tbody tr td, th{text-align: center;}
     label.error{color:red;font-size:10px;}
-    .chkbox{display: none;}
+    /*.chkbox{display: none;}*/
     #json{width:800px;}
 </style>
 {{--  Javascript --}}
@@ -17,3 +18,4 @@
 <script src="{{ asset('js/jquery.datatables.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>

@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth']],function(){
         Route::match(array('get','post'),'users','AdminController@users');
         Route::post('changepass','AdminController@changepass');
         Route::post('getuserdata','AdminController@getuserdata');
+        Route::post('submitfilter','AdminController@submitfilter');
     });
 });
 

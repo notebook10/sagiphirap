@@ -26,7 +26,8 @@
                             echo "<li><a href='users'><span class='glyphicon glyphicon-globe'></span> Users</a> </li>";
                         }
                         ?>
-                        <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                        <li><a href="#" id="btnreport"><span class="glyphicon glyphicon-file"></span> Report </a></li>
+                        <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </li>
             </ul>
