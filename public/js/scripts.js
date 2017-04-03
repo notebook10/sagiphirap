@@ -153,6 +153,8 @@ $('document').ready(function(){
             maxDate : new Date()
         });
         $('#end_date').datepicker();
+        $('#start_date, #end_date').val('');
+        $('#selectReport').removeAttr('selected').find('option:first').attr('selected', 'selected');
         $("#reportModal").modal("show");
     });
     $('#selectReport').on('change', function(){
@@ -168,9 +170,8 @@ $('document').ready(function(){
         if(selected == null){
             swal("Error","Please select a filter","error");
             e.preventDefault();
-        }
-        if(selected == 'paid'){
-            if($('#start_date').val() == null || $('#end_date').val() == null){
+        }else if(selected == 'paid'){
+            if($('#start_date').val() == '' || $('#end_date').val() == ''){
                 swal("Error","Please complete the filter form","error");
                 e.preventDefault();
             }
