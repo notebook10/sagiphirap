@@ -59,7 +59,8 @@ $('document').ready(function(){
             'comp_contact_person' : 'required',
             'comp_contact_number' : {
                 required : true,
-                number: true
+                number: true,
+                maxlength : 11
             },
             'comp_address' : 'required'
         }
@@ -167,6 +168,12 @@ $('document').ready(function(){
         if(selected == null){
             swal("Error","Please select a filter","error");
             e.preventDefault();
+        }
+        if(selected == 'paid'){
+            if($('#start_date').val() == null || $('#end_date').val() == null){
+                swal("Error","Please complete the filter form","error");
+                e.preventDefault();
+            }
         }
     });
     function disableinput($agentid){
