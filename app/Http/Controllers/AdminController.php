@@ -5,6 +5,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Barryvdh\DomPDF\PDF;
+use Illuminate\Support\Facades\App;
 
 class AdminController extends Controller
 {
@@ -95,12 +97,30 @@ class AdminController extends Controller
         return $data;
     }
     public function submitfilter(Request $request){
-//        strtotime(date('Y-m-d', strtotime($foo->created_at, 0))))
+        $company = new Company();
         $filter = $request->selectReport;
         $start_date = $request->start_date;
         $end_date = $request->end_date;
-        $company = new Company();
-        $filteredData = $company->filter($filter);
-        dd($filteredData);
+        switch ($filter){
+            case "all":
+                $filteredData = $company->getAll();
+                $title = "All Company Report";
+                break;
+            case "paid":
+                $filteredData = $company->filter($filter,date('Y-m-d',strtotime($start_date)),date('Y-m-d',strtotime($end_date)));
+                $title = 'Paid Companies Report from ' . date('Y-M-d',strtotime($start_date)) . ' to ' . date('Y-M-d', strtotime($end_date));
+                break;
+            default:
+                break;
+        }
+        $dataArray = [
+            'paidcompanies' => $filteredData,
+            'title' => $title,
+            'start' => $start_date,
+            'end' => $end_date
+        ];
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdf.paidreport',$dataArray);
+        return $pdf->stream();
     }
 }

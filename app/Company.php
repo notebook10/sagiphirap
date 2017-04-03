@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Faker\Provider\cs_CZ\DateTime;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
@@ -12,6 +13,7 @@ class Company extends Model
     public function getAll(){
         return DB::table($this->table)
             ->where('status',1)
+            ->orderBy('name')
             ->get();
     }
     public function insertNewCompany($dataArray){
@@ -39,9 +41,10 @@ class Company extends Model
     public function test(){
         return DB::table($this->table)->where('id',42)->first();
     }
-    public function filter($filter){
+    public function filter($filter, $start, $end){
         return DB::table($this->table)
             ->where($filter,1)
+            ->whereBetween('created_at',[$start.' 00:00:00', $end.' 23:59:59'])
             ->get();
     }
 }

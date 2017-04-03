@@ -145,7 +145,6 @@ $('document').ready(function(){
     });
     $("#btn_lastpaid").on("click",function(){
         // Last paid
-        alert(json.lastpaid);
         $("#paid").val(json.lastpaid);
     });
     $("#btnreport").on("click", function(){
@@ -154,6 +153,21 @@ $('document').ready(function(){
         });
         $('#end_date').datepicker();
         $("#reportModal").modal("show");
+    });
+    $('#selectReport').on('change', function(){
+        var selected = $(this).val();
+        if(selected == 'all'){
+            $('#start_date, #end_date').prop('disabled', true);
+        }else{
+            $('#start_date, #end_date').prop('disabled', false);
+        }
+    });
+    $("#btnSubmitFilter").on("click", function(e){
+        var selected = $("#selectReport").val();
+        if(selected == null){
+            swal("Error","Please select a filter","error");
+            e.preventDefault();
+        }
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
