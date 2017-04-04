@@ -3,6 +3,8 @@
     <head>
         <title>{!! Theme::get('title') !!}</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf_token" content="{{ csrf_token() }}">
         <meta name="keywords" content="{!! Theme::get('keywords') !!}">
         <meta name="description" content="{!! Theme::get('description') !!}">
 
@@ -19,6 +21,8 @@
         </style>
     </head>
     <body>
+    <input type="hidden" id="baseurl" value="{{ URL::to('/') }}">
+    <input type="hidden" id="token" value="{{ csrf_token() }}">
         {!! Theme::partial('header') !!}
 
         <div class="container">
@@ -29,4 +33,11 @@
 
         {!! Theme::asset()->container('footer')->scripts() !!}
     </body>
+
+
+    @include('includes/companymodal')
+    @include('default/register')
+    @include('includes/filter_report_modal')
+    @include("includes/usermodal")
+    @include("default/register")
 </html>
