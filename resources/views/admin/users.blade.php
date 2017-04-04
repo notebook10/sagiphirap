@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        @include("includes/important")
-        @include("includes/config")
-        <script src="{{ asset('js/users.js') }}"></script>
-    </head>
-    <body>
-        USERS
+{{--<!DOCTYPE html>--}}
+{{--<html lang="en">--}}
+    {{--<head>--}}
+        {{--@include("includes/important")--}}
+        {{--@include("includes/config")--}}
+        {{--<script src="{{ asset('js/users.js') }}"></script>--}}
+    {{--</head>--}}
+    {{--<body>--}}
+        {{--USERS--}}
         <style>td{text-align: center;}</style>
         <table id="tbl_users">
             <thead>
@@ -36,5 +36,5 @@
         </table>
     @include("includes/usermodal")
     @include("default/register")
-    </body>
-</html>
+    {{--</body>--}}
+{{--</html>--}}

@@ -82,7 +82,8 @@ class HomeController extends Controller
         $dataArray = array(
             'data' => $allData
         );
-        return view('admin/dashboard',$dataArray);
+        $theme = Theme::uses('default')->layout('default');
+        return $theme->of('admin.dashboard',$dataArray)->render();
     }
     public function forgotpassword(){
         return view('default.forgotpassword');

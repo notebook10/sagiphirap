@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\App;
+use Theme;
 
 class AdminController extends Controller
 {
@@ -71,7 +72,8 @@ class AdminController extends Controller
         $dataArray = [
             'users' => $usersdata
         ];
-        return view('admin.users', $dataArray);
+        $theme = Theme::uses('default')->layout('default');
+        return $theme->of('admin.users', $dataArray)->render();
     }
     public function changepass(Request $request){
         $id = $request->input("id");

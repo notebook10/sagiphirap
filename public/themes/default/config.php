@@ -57,16 +57,22 @@ return array(
         // breadcrumb template.
         'beforeRenderTheme' => function($theme)
         {
-            // You may use this event to set up your assets.
-            // $theme->asset()->usePath()->add('core', 'core.js');
-            // $theme->asset()->add('jquery', 'vendor/jquery/jquery.min.js');
-            // $theme->asset()->add('jquery-ui', 'vendor/jqueryui/jquery-ui.min.js', array('jquery'));
+            $theme->asset()->add('css-bootstrap-min', 'css/bootstrap/bootstrap.min.css');
+            $theme->asset()->add('css-jquery-ui', 'css/jquery-ui.min.css');
+            $theme->asset()->add('css-datatables', 'css/datatables.min.css');
+            $theme->asset()->add('css-dashboard', 'css/dashboard.css');
+            $theme->asset()->add('css-style', 'css/style.css');
+            $theme->asset()->add('css-sweetalert', 'css/sweetalert.css');
 
-            // Partial composer.
-            // $theme->partialComposer('header', function($view)
-            // {
-            //     $view->with('auth', Auth::user());
-            // });
+            $theme->asset()->add('js-jquery-3.1.1', 'js/jquery-3.1.1.js');
+            $theme->asset()->add('js-jquery-ui', 'js/jquery-ui.min.js');
+            $theme->asset()->add('js-bootstrap-min', 'js/bootstrap/bootstrap.min.js');
+            $theme->asset()->add('js-jquery-validate', 'js/jquery.validate.min.js');
+            $theme->asset()->add('js-jquery-datatables', 'js/jquery.datatables.js');
+            $theme->asset()->add('js-register', 'js/register.js');
+            $theme->asset()->add('js-scripts', 'js/scripts.js');
+            $theme->asset()->add('js-users', 'js/users.js');
+            $theme->asset()->add('js-sweetalert', 'js/sweetalert.min.js');
         },
 
         // Listen on event before render a layout,

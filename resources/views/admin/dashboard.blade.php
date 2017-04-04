@@ -1,14 +1,14 @@
 <?php
     use App\User;
 ?>
-<head>
-    @include("includes/important")
-    @include("includes/config")
-    <script src="{{ asset('js/scripts.js') }}"></script>
-</head>
-@include('includes/header')
-<body>
-    <div class="container">
+{{--<head>--}}
+    {{--@include("includes/important")--}}
+    {{--@include("includes/config")--}}
+    {{--<script src="{{ asset('js/scripts.js') }}"></script>--}}
+{{--</head>--}}
+{{--@include('includes/header')--}}
+{{--<body>--}}
+    {{--<div class="container">--}}
         {{--<a href="logout" class="btn btn-danger">Logout</a>--}}
         <button id="addcompany" class="btn btn-primary ">ADD COMPANY</button>
         {{--<p>Current User: <i>{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}</i></p>--}}
@@ -46,4 +46,4 @@
 @include('default/register')
 @include('includes/filter_report_modal')
 
-</body>
+{{--</body>--}}
