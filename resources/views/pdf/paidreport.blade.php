@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php use App\User; ?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,21 +18,6 @@
     </style>
 </head>
 <body>
-    <script type="text/php">
-        echo "test";
-        if (isset($pdf)) {
-            $x = 250;
-            $y = 10;
-            $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
-            $font = null;
-            $size = 14;
-            $color = array(255,0,0);
-            $word_space = 0.0;  //  default
-            $char_space = 0.0;  //  default
-            $angle = 0.0;   //  default
-            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
-        }
-    </script>
     <h1 class="center header">Center for Sagip-Hirap Charity Foundation</h1>
     <p class="center header">Unit 1024 CityLand Shaw Tower Shaw Blvrd., Mandaluyong City</p>
     <p class="center header">Phone: (02) 910-4191</p>
@@ -45,6 +31,7 @@
                     <th>Contact Person</th>
                     <th>Contact Number</th>
                     <th>Contact Address</th>
+                    <th>Added By</th>
                     <th>Date Added</th>
                 </tr>
             </thead>
@@ -56,6 +43,7 @@
                     <td>{{ $value->contact_person }}</td>
                     <td>{{ $value->contact_number }}</td>
                     <td>{{ $value->contact_address }}</td>
+                    <td>{{ User::getuserbyid($value->agent_id)->firstname . ' ' . User::getuserbyid($value->agent_id)->lastname }}</td>
                     <td><?php echo date('Y-m-d',strtotime($value->created_at)); ?></td>
                 </tr>
             @endforeach
