@@ -168,7 +168,7 @@ $('document').ready(function(){
     $('#selectReport').on('change', function(){
         var selected = $(this).val();
         if(selected == 'all'){
-            $('#start_date, #end_date').prop('disabled', true);
+            $('#start_date, #end_date').prop('disabled', true).val("");
         }else{
             $('#start_date, #end_date').prop('disabled', false);
         }
