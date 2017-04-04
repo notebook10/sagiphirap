@@ -1,5 +1,5 @@
 <style>td{text-align: center;}</style>
-<table id="tbl_users">
+<table id="tbl_users" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
         <th>Fullname</th>
