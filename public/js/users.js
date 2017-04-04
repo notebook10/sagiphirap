@@ -92,15 +92,40 @@ $("document").ready(function(){
     });
     $("body").delegate(".deleteuser","click", function(){
         var id = $(this).data('id');
-        $.ajax({
-            'url' : BASE_URL + 'admin/deleteuser',
-            type : 'post',
-            data : {
-                id : id
+        swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this user!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel please!",
+                closeOnConfirm: false,
+                closeOnCancel: false
             },
-            
-        });
-        swal("Error!",id,"error");
+            function(isConfirm){
+                if (isConfirm) {
+                    $.ajax({
+                        'url' : BASE_URL + '/admin/deleteuser',
+                        type : 'post',
+                        data : {
+                            _token : $('[name="csrf_token"]').attr('content'),
+                            id : id
+                        },
+                        success : function(response){
+                            swal("Success!","User successfully deleted!","success");
+                            $('button.confirm').on('click',function(){
+                                location.reload();
+                            });
+                        },
+                        error : function (xhr, foo , error) {
+                            swal('Error!',error,'error');
+                        }
+                    });
+                } else {
+                    swal("Cancelled", "User not deleted :)", "error");
+                }
+            });
     });
 });
 function clearformpassword(){

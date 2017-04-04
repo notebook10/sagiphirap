@@ -10,13 +10,13 @@
             <div class="modal-body">
                 <form method="post" action="submitfilter" id="frmFilter">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <select name="selectReport" id="selectReport">
+                    Filter:<select name="selectReport" id="selectReport">
                         <option disabled selected> -- Select --</option>
                         <option value="all">All Companies Paid/not Paid</option>
                         <option value="paid">Paid Companies</option>
-                    </select>
-                    <input type="text" name="start_date" id="start_date">
-                    <input type="text" name="end_date" id="end_date">
+                    </select><br>
+                    Start Date:<input type="text" name="start_date" id="start_date"><br>
+                    End Date:<input type="text" name="end_date" id="end_date"><br>
                     <input type="submit" value="View" id="btnSubmitFilter">
                 </form>
             </div>

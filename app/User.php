@@ -66,4 +66,9 @@ class User extends Authenticatable
             ->where('id', $id)
             ->update($dataArray);
     }
+    public function deleteuser($id){
+        return DB::table('users')
+            ->where('id', $id)
+            ->delete();
+    }
 }

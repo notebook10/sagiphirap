@@ -16,6 +16,7 @@ Route::group(['middleware' => ['auth']],function(){
         Route::post('changepass','AdminController@changepass');
         Route::post('getuserdata','AdminController@getuserdata');
         Route::post('submitfilter','AdminController@submitfilter');
+        Route::post('deleteuser','AdminController@deleteuser');
     });
 });
 
