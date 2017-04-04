@@ -112,3 +112,12 @@
 }
 
 ul.errormessage li{color:red;}
+
+.back-btn {
+    margin-bottom: 10px;
+}
+
+.navbar-brand img {
+    margin-top: -13px;
+    width: 60%;
+}

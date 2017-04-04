@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ URL::to('/') }}">Foobar</a>
+                <a class="navbar-brand" href="{{ URL::to('/') }}"><img src="../images/psme-logo.png" class="img-responsive"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">

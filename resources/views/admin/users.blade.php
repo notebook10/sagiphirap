@@ -1,4 +1,6 @@
 <style>td{text-align: center;}</style>
+
+<a href="/admin/dashboard" class="btn btn-primary back-btn"><< Back</a>
 <table id="tbl_users" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
