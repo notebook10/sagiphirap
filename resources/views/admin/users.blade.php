@@ -28,7 +28,7 @@
                     <td>
                         <button class="btn btn-success edituser" data-id="{{ $value->id }}">Edit</button>
                         <button class="btn btn-primary changepass" data-id="{{ $value->id }}">Change Password</button>
-                        <button class="btn btn-danger deleteuser">Delete</button>
+                        <button class="btn btn-danger deleteuser" data-id="{{ $value->id }}">Delete</button>
                     </td>
                 </tr>
             @endforeach

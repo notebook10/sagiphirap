@@ -1,7 +1,7 @@
 $("document").ready(function(){
     var BASE_URL = $('#baseurl').val();
     loadUserDataTable();
-    $(".changepass").on("click", function(){
+    $("body").delegate(".changepass","click", function(){
         var id = $(this).data("id");
         clearformpassword();
         $("#id").val($(this).data("id"));
@@ -62,9 +62,6 @@ $("document").ready(function(){
             }
         }
     });
-    $(".deleteuser").on("click", function(){
-        swal("Error!","Wala pa","error");
-    });
     $("body").delegate(".edituser","click", function(){
         var id  = $(this).data("id");
         $("#idregis").val(id);
@@ -92,6 +89,18 @@ $("document").ready(function(){
                 swal("Error",error,"error");
             }
         });
+    });
+    $("body").delegate(".deleteuser","click", function(){
+        var id = $(this).data('id');
+        $.ajax({
+            'url' : BASE_URL + 'admin/deleteuser',
+            type : 'post',
+            data : {
+                id : id
+            },
+            
+        });
+        swal("Error!",id,"error");
     });
 });
 function clearformpassword(){
