@@ -121,3 +121,33 @@ ul.errormessage li{color:red;}
     margin-top: -13px;
     width: 60%;
 }
+
+.checkbtn {
+    margin-bottom: 15px;
+    box-shadow: 7px 5px 9px #ccc;
+}
+
+#chk_div {
+    border: 1px solid #ccc;
+    padding: 10px 0 50px 0;
+    box-shadow: 7px 5px 9px #ccc;
+    border-radius: 5px;
+}
+
+.modal-header {
+    background: #337ab7;
+    color: #ffffff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+button.close {
+    color: #ffffff;
+    border: 1px solid;
+    border-radius: 14px;
+    width: 25px;
+    height: 25px;
+}
+button.close:hover {
+    color:red;
+}

@@ -1,6 +1,8 @@
 <?php
     use App\User;
 ?>
+
+<h2>List of Company Client</h2>
 <button id="addcompany" class="btn btn-primary ">ADD COMPANY</button>
 {{--<p>Current User: <i>{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}</i></p>--}}
 <input type="hidden" id="auth_id" value="{{ Auth::user()->id }}" data-usertype="{{ Auth::user()->user_type }}">

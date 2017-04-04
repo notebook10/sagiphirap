@@ -66,7 +66,7 @@ $("document").ready(function(){
         var id  = $(this).data("id");
         $("#idregis").val(id);
         $("#operationregis").val(1);
-        $("h1.modal-title.center-block").text("Edit User");
+        $(".account-title").html("Edit User");
         clearformpassword();
         $("#registerModal").modal("show");
         $("#password").prop('disabled', true);

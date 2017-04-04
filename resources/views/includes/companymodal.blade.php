@@ -47,41 +47,59 @@
                                 <textarea class="form-control" id="comp_desc" name="comp_desc" placeholder="Enter Notes"></textarea>
                             </div>
                         </div>
+                    <hr>
+
+                    <h4>Transaction Status</h4>
                         <div id="chk_div">
-                            <button type="button" id="btn_emailsent" class="btn checkbtn" data-to="chk_emailsent" data-btn="success">
-                                <span class="glyphicon chk_emailsent"></span> Send Email
-                            </button>
-                            <input type="checkbox" name="chk_emailsent" id="chk_emailsent" class="chkbox" value="1">
-                            {{-------------Break--------------}}
-                            <button type="button" id="btn_sendattachment" class="btn checkbtn" data-to="chk_sendattachment" data-btn="primary">
-                                <span class="glyphicon chk_sendattachment"></span> Send Attachment
-                            </button>
-                            <input type="checkbox" name="chk_sendattachment" id="chk_sendattachment" class="chkbox" value="1">
-                            {{-------------Break--------------}}
-                            <button type="button" id="btn_followupcall" class="btn checkbtn" data-to="chk_followupcall" data-btn="info">
-                                <span class="glyphicon chk_followupcall"></span> Follow-up call
-                            </button>
-                            <input type="checkbox" name="chk_followupcall" id="chk_followupcall" class="chkbox" value="1">
-                            {{-------------Break--------------}}
-                            <button type="button" id="btn_statementofaccount" class="btn checkbtn" data-to="chk_statementofaccount" data-btn="warning">
-                                <span class="glyphicon chk_statementofaccount"></span> Send Statement of Account
-                            </button>
-                            <input type="checkbox" name="chk_statementofaccount" id="chk_statementofaccount" class="chkbox" value="1">
-                            {{-------------Break--------------}}
-                            <button type="button" id="btn_bankaccountinfo" class="btn checkbtn" data-to="chk_bankaccountinfo" data-btn="danger">
-                                <span class="glyphicon chk_bankaccountinfo"></span> Send Bank Account Info
-                            </button>
-                            <input type="checkbox" name="chk_bankaccountinfo" id="chk_bankaccountinfo" class="chkbox" value="1">
-                            {{-------------Break--------------}}
-                            <button type="button" id="btn_lastpaid" class="btn checkbtn" data-to="chk_lastpaid" data-btn="default">
-                                <span class="glyphicon chk_lastpaid"></span> Last Paid
-                            </button>
-                            <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid" class="chkbox" value="1">
+                            <div class="col-xs-4">
+                                <button type="button" id="btn_emailsent" class="btn checkbtn center-block" data-to="chk_emailsent" data-btn="success">
+                                    <span class="glyphicon chk_emailsent"></span> Send Email
+                                </button>
+                                <input type="checkbox" name="chk_emailsent" id="chk_emailsent" class="chkbox" value="1">
+                            </div>
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_sendattachment" class="btn checkbtn center-block" data-to="chk_sendattachment" data-btn="primary">
+                                    <span class="glyphicon chk_sendattachment"></span> Send Attachment
+                                </button>
+                                <input type="checkbox" name="chk_sendattachment" id="chk_sendattachment" class="chkbox" value="1">
+                            </div>
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_followupcall" class="btn checkbtn center-block" data-to="chk_followupcall" data-btn="info">
+                                    <span class="glyphicon chk_followupcall"></span> Follow-up call
+                                </button>
+                                <input type="checkbox" name="chk_followupcall" id="chk_followupcall" class="chkbox" value="1">
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_statementofaccount" class="btn checkbtn center-block" data-to="chk_statementofaccount" data-btn="warning">
+                                    <span class="glyphicon chk_statementofaccount"></span> Send Statement of Account
+                                </button>
+                                <input type="checkbox" name="chk_statementofaccount" id="chk_statementofaccount" class="chkbox" value="1">
+                            </div>
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_bankaccountinfo" class="btn checkbtn center-block" data-to="chk_bankaccountinfo" data-btn="danger">
+                                    <span class="glyphicon chk_bankaccountinfo"></span> Send Bank Account Info
+                                </button>
+                                <input type="checkbox" name="chk_bankaccountinfo" id="chk_bankaccountinfo" class="chkbox" value="1">
+                            </div>
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_lastpaid" class="btn checkbtn center-block" data-to="chk_lastpaid" data-btn="default">
+                                    <span class="glyphicon chk_lastpaid"></span> Last Paid
+                                </button>
+                                <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid" class="chkbox" value="1">
+                            </div>
                         </div>
                         <input type="hidden" id="json" name="json">
                         <input type="hidden" id="paid" name="paid">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer company-footer">
                     <input type="button" class="btn btn-danger close_modal" data-dismiss="modal" value="Close">
                     <input type="button" class="btn btn-success" value="Save" id="btnSubmitCompany">
                 </div>

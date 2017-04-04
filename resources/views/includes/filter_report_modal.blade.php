@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close close_modal" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Company List Report</h4>
+                <h3 class="modal-title">Company List Report</h3>
             </div>
             <div class="modal-body">
                 <form method="post" action="submitfilter" id="frmFilter">

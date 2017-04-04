@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{!! Theme::get('title') !!}</title>
+        <title>PSME | {!! Theme::get('title') !!}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf_token" content="{{ csrf_token() }}">
         <meta name="keywords" content="{!! Theme::get('keywords') !!}">
         <meta name="description" content="{!! Theme::get('description') !!}">
+        <link href = "../images/psme-logo2.png" rel="icon" type="image/png">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
