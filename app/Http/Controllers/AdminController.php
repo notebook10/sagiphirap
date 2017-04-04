@@ -75,7 +75,7 @@ class AdminController extends Controller
         $dataArray = [
             'users' => $usersdata
         ];
-        $theme = Theme::uses('default')->layout('default');
+        $theme = Theme::uses('default')->layout('default')->setTitle('Users');
         return $theme->of('admin.users', $dataArray)->render();
     }
     public function changepass(Request $request){
