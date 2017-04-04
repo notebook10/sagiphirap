@@ -123,4 +123,8 @@ class AdminController extends Controller
         $pdf->loadView('pdf.paidreport',$dataArray);
         return $pdf->stream();
     }
+    public function deleteuser(Request $request){
+        $user = new User();
+        $user->deleteuser($request->id);
+    }
 }
