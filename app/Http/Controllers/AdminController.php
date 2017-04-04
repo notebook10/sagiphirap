@@ -116,8 +116,8 @@ class AdminController extends Controller
         $dataArray = [
             'paidcompanies' => $filteredData,
             'title' => $title,
-            'start' => $start_date,
-            'end' => $end_date
+            'start' => $start_date ? $start_date : '',
+            'end' => $end_date ? $end_date : ''
         ];
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('pdf.paidreport',$dataArray);

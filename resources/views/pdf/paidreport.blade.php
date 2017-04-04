@@ -17,6 +17,21 @@
     </style>
 </head>
 <body>
+    <script type="text/php">
+        echo "test";
+        if (isset($pdf)) {
+            $x = 250;
+            $y = 10;
+            $text = "Page {PAGE_NUM} of {PAGE_COUNT}";
+            $font = null;
+            $size = 14;
+            $color = array(255,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script>
     <h1 class="center header">Center for Sagip-Hirap Charity Foundation</h1>
     <p class="center header">Unit 1024 CityLand Shaw Tower Shaw Blvrd., Mandaluyong City</p>
     <p class="center header">Phone: (02) 910-4191</p>

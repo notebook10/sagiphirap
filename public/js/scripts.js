@@ -20,7 +20,7 @@ $('document').ready(function(){
         $('#operationregis').val(0);
         $('#registerModal').modal('show');
     });
-    $('.btnedit').on('click',function(){
+    $('body').delegate('.btnedit','click',function(){
         clearForm();
         $('#id').val($(this).data('id'));
         var id = $('#id').val();
@@ -54,13 +54,14 @@ $('document').ready(function(){
     });
     $('#frmcompany').validate({
         rules : {
-            'comp_name' : 'required',
+            'comp_name' : {required : true , minlength : 4 },
             'comp_desc' : 'required',
-            'comp_contact_person' : 'required',
+            'comp_contact_person' : {required : true , minlength : 4},
             'comp_contact_number' : {
                 required : true,
                 number: true,
-                maxlength : 11
+                maxlength : 11,
+                minlength : 4
             },
             'comp_address' : 'required'
         }
