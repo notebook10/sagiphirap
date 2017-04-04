@@ -31,7 +31,8 @@ class AdminController extends Controller
             'cnumber' => $request->input('cnumber'),
             'address' => $request->input('caddress'),
             'agentid' => Auth::user()->id,
-            'state' => $json
+            'state' => $json,
+            'created_at' => $request->input('date')
         );
         $data2 = array(
             'name' => $request->input('name'),
@@ -41,7 +42,8 @@ class AdminController extends Controller
             'contact_address' => $request->input('caddress'),
             'status' => 1,
             'state' => $json,
-            'paid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0'
+            'paid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0',
+            'created_at' => $request->input('date')
         );
 //        $lastpaid = $request->input('json');
 //        $decode = json_decode($lastpaid);
@@ -62,7 +64,8 @@ class AdminController extends Controller
             'cnumber' => $row->contact_number,
             'caddress' => $row->contact_address,
             'state' => $row->state,
-            'paid' => $row->paid
+            'paid' => $row->paid,
+            'date' => $row->created_at
         ];
         return $dataArray;
     }

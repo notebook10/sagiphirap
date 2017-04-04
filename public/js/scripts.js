@@ -7,6 +7,10 @@ $('document').ready(function(){
     if(USER_TYPE == 1){
         $('.btnedit').prop('disabled',false);
     }
+    $('#comp_date').datepicker({
+        maxDate : new Date(),
+        dateFormat: 'yy-mm-dd'
+    });
     $('#addcompany').on('click',function(){
         clearForm();
         enableinput();
@@ -45,6 +49,7 @@ $('document').ready(function(){
                 $('#comp_address').val(data['caddress']);
                 $('#paid').val(data['paid']);
                 $('#json').val(data['state']);
+                $('#comp_date').val(data['date']);
                 setState(data['state']);
             },
             error : function(xhr,asd,error){
@@ -63,7 +68,8 @@ $('document').ready(function(){
                 maxlength : 11,
                 minlength : 4
             },
-            'comp_address' : 'required'
+            'comp_address' : 'required',
+            'comp_date' : 'required'
         }
     });
     $('#btnSubmitCompany').on('click',function(){
@@ -102,7 +108,8 @@ $('document').ready(function(){
                                 statementofaccount : $('#chk_statementofaccount').prop('checked') ? $('#chk_statementofaccount').val() : '',
                                 bankaccountinfo : $('#chk_bankaccountinfo').prop('checked') ? $('#chk_bankaccountinfo').val() : '',
                                 lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
-                                paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : ''
+                                paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
+                                date : $('#comp_date').val()
                             },
                             success : function(response){
                                 console.log(response);

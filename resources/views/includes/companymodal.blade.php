@@ -30,6 +30,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="comp_date">Date Created:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="comp_date" name="comp_date" placeholder="Select Date Created" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-sm-2" for="comp_address">Address:</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="comp_address" name="comp_address" placeholder="Enter Contact Address"></textarea>
