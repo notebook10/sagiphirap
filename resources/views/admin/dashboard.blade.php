@@ -13,7 +13,7 @@
         <th>Description</th>
         <th>Contact Person</th>
         <th>Contact Number</th>
-        <th>Agent ID</th>
+        <th>Agent Name</th>
         <th>Action</th>
     </tr>
     </thead>
