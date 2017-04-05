@@ -188,9 +188,9 @@ $('document').ready(function(){
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn").prop("disabled",true);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date").prop("disabled",true);
         }else{
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn").prop("disabled",false);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date").prop("disabled",false);
         }
     }
     function enableinput(){

@@ -59,6 +59,10 @@ $('document').ready(function(){
             },
             'address' : 'required',
             'email' : 'required',
+            'password' : 'required',
+            'confpassword' : {
+                equalTo : '#password'
+            }
         }
     });
     $('.close_modal').on('click',function(){

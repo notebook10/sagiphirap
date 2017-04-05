@@ -1,5 +1,6 @@
-<script src="{{ asset('js/register.js') }}"></script>
-@include("includes/important")
+{{--<script src="{{ asset('js/register.js') }}"></script>--}}
+{{--@include("includes/important")--}}
+
 <div id="registerModal" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -41,6 +42,10 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Password</label>
                         <input type="password" id="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confpassword" class="form-control-label">Confirm Password</label>
+                        <input type="password" id="confpassword" class="form-control" name="confpassword">
                     </div>
 
                     <div class="modal-footer">
