@@ -11,8 +11,6 @@
         .header{line-height: 5px;}
         .bgcolor{background: #d8d8d8;}
         td,th{font-size: 13px;}
-        td:nth-child(odd) { background: #d8d8d8;}
-        td:nth-child(even) {background: #eeeeee;}
         tr td:last-child{width:70px;padding: 2px;}
         tr,td{text-align: center;padding: 10px;}
     </style>
@@ -23,7 +21,7 @@
     <p class="center header">Phone: (02) 910-4191</p>
     <div class="center bgcolor"><h2>{{ $title }}</h2></div>
     <div>
-        <table>
+        <table border="1">
             <thead>
                 <tr>
                     <th>ID</th>
