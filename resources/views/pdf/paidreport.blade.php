@@ -28,6 +28,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Company Name</th>
+                    <th>Company Email</th>
                     <th>Contact Person</th>
                     <th>Contact Number</th>
                     <th>Contact Address</th>
@@ -40,6 +41,7 @@
                 <tr>
                     <td>{{ $value->id }}</td>
                     <td>{{ $value->name }}</td>
+                    <td>{{ $value->company_email }}</td>
                     <td>{{ $value->contact_person }}</td>
                     <td>{{ $value->contact_number }}</td>
                     <td>{{ $value->contact_address }}</td>

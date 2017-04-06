@@ -10,7 +10,8 @@
     <thead>
     <tr>
         <th>Company Name</th>
-        <th>Description</th>
+        <th>Email</th>
+        <th>Notes</th>
         <th>Contact Person</th>
         <th>Contact Number</th>
         <th>Agent Name</th>
@@ -21,6 +22,7 @@
     @foreach($data as $key => $value)
         <tr>
             <td>{{ htmlspecialchars($value->name) }}</td>
+            <td>foo@mail.com</td>
             <td>{{ substr(htmlspecialchars($value->description),0,50) }}...</td>
             <td>{{ htmlspecialchars($value->contact_person) }}</td>
             <td>{{ htmlspecialchars($value->contact_number) }}</td>

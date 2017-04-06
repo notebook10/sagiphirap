@@ -51,6 +51,7 @@ $('document').ready(function(){
                 $('#paid').val(data['paid']);
                 $('#json').val(data['state']);
                 $('#comp_date').val(data['date']);
+                $('#comp_email').val(data['email']);
                 setState(data['state']);
             },
             error : function(xhr,asd,error){
@@ -70,7 +71,11 @@ $('document').ready(function(){
                 minlength : 4
             },
             'comp_address' : 'required',
-            'comp_date' : 'required'
+            'comp_date' : 'required',
+            'comp_email' : {
+                required : true,
+                email : true
+            }
         }
     });
     $('#btnSubmitCompany').on('click',function(){
@@ -110,7 +115,8 @@ $('document').ready(function(){
                                 bankaccountinfo : $('#chk_bankaccountinfo').prop('checked') ? $('#chk_bankaccountinfo').val() : '',
                                 lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
                                 paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
-                                date : $('#comp_date').val()
+                                date : $('#comp_date').val(),
+                                email : $('#comp_email').val()
                             },
                             success : function(response){
                                 console.log(response);
@@ -188,9 +194,9 @@ $('document').ready(function(){
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date").prop("disabled",true);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email").prop("disabled",true);
         }else{
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date").prop("disabled",false);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email").prop("disabled",false);
         }
     }
     function enableinput(){

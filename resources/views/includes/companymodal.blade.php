@@ -18,6 +18,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-sm-2" for="comp_email">Company Email:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="comp_email" name="comp_email" placeholder="Enter Company Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-sm-2" for="comp_contact_person">Contact Person:</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="comp_contact_person" name="comp_contact_person" placeholder="Enter Contact Person">
