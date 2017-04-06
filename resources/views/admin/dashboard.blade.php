@@ -22,7 +22,7 @@
     @foreach($data as $key => $value)
         <tr>
             <td>{{ htmlspecialchars($value->name) }}</td>
-            <td>foo@mail.com</td>
+            <td>{{ htmlspecialchars($value->company_email) }}</td>
             <td>{{ substr(htmlspecialchars($value->description),0,50) }}...</td>
             <td>{{ htmlspecialchars($value->contact_person) }}</td>
             <td>{{ htmlspecialchars($value->contact_number) }}</td>

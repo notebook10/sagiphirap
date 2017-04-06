@@ -13,6 +13,7 @@
         td,th{font-size: 13px;}
         tr td:last-child{width:70px;padding: 2px;}
         tr,td{text-align: center;padding: 10px;}
+        thead tr th{background-color: #d8d8d8;font-size: 14px; }
     </style>
 </head>
 <body>
