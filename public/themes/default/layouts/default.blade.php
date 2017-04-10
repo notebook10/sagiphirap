@@ -19,6 +19,12 @@
             label.error{color:red;font-size:10px;}
             .chkbox{display: none;}
             #json{width:800px;}
+            .ulAgent{
+                position: absolute;
+                width:300px;
+                background: #ffffff;
+                z-index: 9999;
+            }
         </style>
     </head>
     <body>

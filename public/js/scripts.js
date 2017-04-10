@@ -184,7 +184,7 @@ $('document').ready(function(){
             $("#filterAgent").html("");
             $("#agentInput").val("");
         }else if(selected == 'agent'){
-            $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput'></div> </div>");
+            $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput'><ul class='ulAgent'></ul> </div> </div>");
         }
         else{
             $('#start_date, #end_date').prop('disabled', false);
@@ -203,6 +203,10 @@ $('document').ready(function(){
                 e.preventDefault();
             }
         }
+    });
+    $('body').delegate('#agentInput','keyup', function(){
+        console.log($(this).val());
+        $(".ulAgent").append("<li>Testgin</li>");
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
