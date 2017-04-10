@@ -19,4 +19,3 @@ Route::group(['middleware' => ['auth']],function(){
         Route::post('deleteuser','AdminController@deleteuser');
     });
 });
-

@@ -9,7 +9,7 @@
 <style>
     tbody tr td, th{text-align: center;}
     label.error{color:red;font-size:10px;}
-    .chkbox{display: none;}
+    /*.chkbox{display: none;}*/
     #json{width:800px;}
 </style>
 {{--  Javascript --}}

@@ -1,7 +1,7 @@
 $('document').ready(function(){
     var BASE_URL = $('#baseurl').val();
     var USER_TYPE = $('#auth_id').data('usertype');
-    var json = {"emailsent":"0","sendattachment":"0","followupcall":"0","statementofaccount":"0","bankaccountinfo":"0","lastpaid":"0"};
+    var json = {"emailsent":"0","sendattachment":"0","followupcall":"0","statementofaccount":"0","bankaccountinfo":"0","lastpaid":"0","confirm":"0"};
     var AUTH_ID = $("#auth_id").val();
     loadClientCompaniesDataTable();
     if(USER_TYPE == 1){
@@ -116,7 +116,8 @@ $('document').ready(function(){
                                 lastpaid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
                                 paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
                                 date : $('#comp_date').val(),
-                                email : $('#comp_email').val()
+                                email : $('#comp_email').val(),
+                                confirm : $('#chk_confirm').prop('checked') ? $('#chk_confirm').val() : ''
                             },
                             success : function(response){
                                 console.log(response);

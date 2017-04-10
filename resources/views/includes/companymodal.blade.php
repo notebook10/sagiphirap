@@ -101,6 +101,14 @@
                                 </button>
                                 <input type="checkbox" name="chk_lastpaid" id="chk_lastpaid" class="chkbox" value="1">
                             </div>
+                            {{------}}
+                            <div class="col-xs-4">
+                                {{-------------Break--------------}}
+                                <button type="button" id="btn_confirm" class="btn checkbtn center-block" data-to="chk_confirm" data-btn="success">
+                                    <span class="glyphicon chk_confirm"></span> Confirm
+                                </button>
+                                <input type="checkbox" name="chk_confirm" id="chk_confirm" class="chkbox" value="1">
+                            </div>
                         </div>
                         <input type="hidden" id="json" name="json">
                         <input type="hidden" id="paid" name="paid">

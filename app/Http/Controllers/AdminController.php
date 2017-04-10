@@ -21,7 +21,8 @@ class AdminController extends Controller
             'followupcall' => $request->input('followupcall') ? $request->input('followupcall') : '0',
             'statementofaccount' => $request->input('statementofaccount') ? $request->input('statementofaccount') : '0',
             'bankaccountinfo' => $request->input('bankaccountinfo') ? $request->input('bankaccountinfo') : '0',
-            'lastpaid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0'
+            'lastpaid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0',
+            'confirm' => $request->input('confirm') ? $request->input('confirm') : '0',
         ];
         $json = json_encode($arr);
         $data = array(
