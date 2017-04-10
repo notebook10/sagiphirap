@@ -177,10 +177,19 @@ $('document').ready(function(){
         var selected = $(this).val();
         if(selected == 'all'){
             $('#start_date, #end_date').prop('disabled', true).val("");
+            $("#filterAgent").html("");
+            $("#agentInput").val("");
         }else if(selected == 'confirmnotpaid'){
             $('#start_date, #end_date').prop('disabled', true).val("");
-        }else{
+            $("#filterAgent").html("");
+            $("#agentInput").val("");
+        }else if(selected == 'agent'){
+            $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput'></div> </div>");
+        }
+        else{
             $('#start_date, #end_date').prop('disabled', false);
+            $("#filterAgent").html("");
+            $("#agentInput").val("");
         }
     });
     $("#btnSubmitFilter").on("click", function(e){

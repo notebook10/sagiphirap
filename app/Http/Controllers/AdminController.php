@@ -126,6 +126,9 @@ class AdminController extends Controller
                 $filteredData = $company->confirmed(1,0);
                 $title = 'Confirmed Companies but not yet Paid';
                 break;
+            case 'agent':
+
+                break;
             default:
                 break;
         }

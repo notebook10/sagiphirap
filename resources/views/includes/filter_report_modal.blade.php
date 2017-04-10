@@ -19,9 +19,11 @@
                                 <option value="all">All Companies Paid/not Paid</option>
                                 <option value="paid">Paid Companies</option>
                                 <option value="confirmnotpaid">Confirmed but not Paid</option>
+                                <option value="agent">Filter by Agent</option>
                             </select>
                         </div>
                     </div>
+                    <div id="filterAgent"></div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
