@@ -209,9 +209,9 @@ $('document').ready(function(){
 function loadClientCompaniesDataTable(){
     $('#tbl_company').DataTable({
         'aoColumnDefs' : [
-            { 'bSortable': false, 'aTargets': [ 3 ] },
             { 'bSortable': false, 'aTargets': [ 4 ] },
-            { 'bSortable': false, 'aTargets': [ 5 ] }
+            // { 'bSortable': false, 'aTargets': [ 8 ] },
+            { 'bSortable': false, 'aTargets': [ 7 ] }
         ]
     });
 }

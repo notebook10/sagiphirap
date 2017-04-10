@@ -15,6 +15,7 @@ class AdminController extends Controller
     public function submitcompany(Request $request){
         $operation = $request->input('operation');
         $id = $request->input('id');
+        $confirm = $request->input('confirm') ? $request->input('confirm') : '0';
         $arr = [
             'emailsent' => $request->input('emailsent') ? $request->input('emailsent') : '0',
             'sendattachment' => $request->input('sendattachment') ? $request->input('sendattachment') : '0',
@@ -34,7 +35,8 @@ class AdminController extends Controller
             'agentid' => Auth::user()->id,
             'state' => $json,
             'created_at' => $request->input('date'),
-            'company_email' => $request->input('email')
+            'company_email' => $request->input('email'),
+            'confirm' => $confirm
         );
         $data2 = array(
             'name' => $request->input('name'),
@@ -46,7 +48,8 @@ class AdminController extends Controller
             'state' => $json,
             'paid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0',
             'created_at' => $request->input('date'),
-            'company_email' => $request->input('email')
+            'company_email' => $request->input('email'),
+            'confirm' => $confirm
         );
 //        $lastpaid = $request->input('json');
 //        $decode = json_decode($lastpaid);
