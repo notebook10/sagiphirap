@@ -122,6 +122,10 @@ class AdminController extends Controller
                 $filteredData = $company->filter($filter,date('Y-m-d',strtotime($start_date)),date('Y-m-d',strtotime($end_date)));
                 $title = 'Paid Companies Report from ' . date('Y-M-d',strtotime($start_date)) . ' to ' . date('Y-M-d', strtotime($end_date));
                 break;
+            case 'confirmnotpaid':
+                $filteredData = $company->confirmed(1,0);
+                $title = 'Confirmed Companies but not yet Paid';
+                break;
             default:
                 break;
         }

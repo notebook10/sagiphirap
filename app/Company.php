@@ -48,4 +48,10 @@ class Company extends Model
             ->whereBetween('created_at',[$start.' 00:00:00', $end.' 23:59:59'])
             ->get();
     }
+    public function confirmed($confirm, $paid){
+        return DB::table($this->table)
+            ->where('confirm',$confirm)
+            ->where('paid', $paid)
+            ->get();
+    }
 }

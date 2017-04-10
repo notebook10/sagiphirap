@@ -18,6 +18,7 @@
                                 <option disabled selected> -- Select --</option>
                                 <option value="all">All Companies Paid/not Paid</option>
                                 <option value="paid">Paid Companies</option>
+                                <option value="confirmnotpaid">Confirmed but not Paid</option>
                             </select>
                         </div>
                     </div>

@@ -177,6 +177,8 @@ $('document').ready(function(){
         var selected = $(this).val();
         if(selected == 'all'){
             $('#start_date, #end_date').prop('disabled', true).val("");
+        }else if(selected == 'confirmnotpaid'){
+            $('#start_date, #end_date').prop('disabled', true).val("");
         }else{
             $('#start_date, #end_date').prop('disabled', false);
         }
