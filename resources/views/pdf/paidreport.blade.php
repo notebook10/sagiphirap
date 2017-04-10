@@ -32,7 +32,7 @@
                     <th>Contact Number</th>
                     <th>Contact Address</th>
                     <th>Added By</th>
-                    <th>Date Added</th>
+                    <th>Date Added (yyyy-mm-dd)</th>
                 </tr>
             </thead>
             <tbody>
