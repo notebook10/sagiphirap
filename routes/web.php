@@ -17,5 +17,6 @@ Route::group(['middleware' => ['auth']],function(){
         Route::post('getuserdata','AdminController@getuserdata');
         Route::post('submitfilter','AdminController@submitfilter');
         Route::post('deleteuser','AdminController@deleteuser');
+        Route::post('sendKeyword','AdminController@sendKeyword');
     });
 });

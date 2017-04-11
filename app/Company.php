@@ -54,4 +54,15 @@ class Company extends Model
             ->where('paid', $paid)
             ->get();
     }
+    public function filterByAgent($firstname){
+        $user = new User();
+        $name = $user->getIDusingFname($firstname);
+        $id = "";
+        foreach ($name as $index => $value){
+            $id = $value->id;
+        }
+        return DB::table($this->table)
+            ->where('agent_id',$id)
+            ->get();
+    }
 }

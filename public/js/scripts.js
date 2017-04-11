@@ -184,7 +184,7 @@ $('document').ready(function(){
             $("#filterAgent").html("");
             $("#agentInput").val("");
         }else if(selected == 'agent'){
-            $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput'><ul class='ulAgent'></ul> </div> </div>");
+            $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput' autocomplete='off'><ul class='ulAgent'></ul> </div> </div>");
         }
         else{
             $('#start_date, #end_date').prop('disabled', false);
@@ -205,8 +205,33 @@ $('document').ready(function(){
         }
     });
     $('body').delegate('#agentInput','keyup', function(){
-        console.log($(this).val());
-        $(".ulAgent").append("<li>Testgin</li>");
+        var keyword = $(this).val();
+        $.ajax({
+            'url' : BASE_URL + '/admin/sendKeyword',
+            type : 'post',
+            data : {
+                _token : $('[name="csrf_token"]').attr('content'),
+                keyword : keyword
+            },
+            success : function(response){
+                console.log(response);
+                if($("#agentInput").val() == ''){
+                    $(".ulAgent").html("");
+                }
+                $(".ulAgent").html("");
+                $.each(response, function(index, value){
+                    $(".ulAgent").append("<li data-value='"+ value.firstname +"'>"+ value.firstname +"</li>");
+                });
+            },
+            error : function(xhr,foo,error){
+                console.log(error);
+            }
+        });
+    });
+    $('body').delegate('.ulAgent li', 'click', function(){
+        var value = $(this).data('value');
+        $('#agentInput').val(value);
+        $('.ulAgent').html('');
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
@@ -241,6 +266,8 @@ function clearForm(){
         .removeClass("btn-warning")
         .removeClass("btn-danger")
         .removeClass("btn-default");
+    $("#filterAgent").html("");
+    $("#agentInput").val("");
 }
 function setState($jsonData){
     var obj = JSON.parse($jsonData);

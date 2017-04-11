@@ -71,4 +71,15 @@ class User extends Authenticatable
             ->where('id', $id)
             ->delete();
     }
+    public function filterAgentsWithName($keyword){
+        return DB::table($this->table)
+            ->where('user_type',2)
+            ->where('firstname','like','%' . $keyword . '%')
+            ->get();
+    }
+    public function getIDusingFname($firstname){
+        return DB::table($this->table)
+            ->where('firstname',$firstname)
+            ->get();
+    }
 }

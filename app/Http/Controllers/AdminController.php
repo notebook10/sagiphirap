@@ -127,7 +127,8 @@ class AdminController extends Controller
                 $title = 'Confirmed Companies but not yet Paid';
                 break;
             case 'agent':
-
+                $filteredData = $company->filterByAgent($request->input('agentInput'));
+                $title = 'Companies added by ' . $request->input('agentInput');
                 break;
             default:
                 break;
@@ -145,5 +146,10 @@ class AdminController extends Controller
     public function deleteuser(Request $request){
         $user = new User();
         $user->deleteuser($request->id);
+    }
+    public function sendKeyword(Request $request){
+        $user = new User();
+        $keyword = $request->input('keyword');
+        return $user->filterAgentsWithName($keyword);
     }
 }
