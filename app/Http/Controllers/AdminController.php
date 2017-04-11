@@ -36,7 +36,8 @@ class AdminController extends Controller
             'state' => $json,
             'created_at' => $request->input('date'),
             'company_email' => $request->input('email'),
-            'confirm' => $confirm
+            'confirm' => $confirm,
+            'amount' => $request->amount
         );
         $data2 = array(
             'name' => $request->input('name'),
@@ -49,7 +50,8 @@ class AdminController extends Controller
             'paid' => $request->input('lastpaid') ? $request->input('lastpaid') : '0',
             'created_at' => $request->input('date'),
             'company_email' => $request->input('email'),
-            'confirm' => $confirm
+            'confirm' => $confirm,
+            'amount' => $request->amount
         );
 //        $lastpaid = $request->input('json');
 //        $decode = json_decode($lastpaid);
@@ -72,7 +74,8 @@ class AdminController extends Controller
             'state' => $row->state,
             'paid' => $row->paid,
             'date' => $row->created_at,
-            'email' => $row->company_email
+            'email' => $row->company_email,
+            'amount' => $row->amount
         ];
         return $dataArray;
     }
@@ -131,6 +134,7 @@ class AdminController extends Controller
                 $title = 'Companies added by ' . $request->input('agentInput');
                 break;
             default:
+
                 break;
         }
         $dataArray = [

@@ -27,6 +27,7 @@ class Company extends Model
         $insert->status = 1;
         $insert->state = $dataArray['state'];
         $insert->company_email = $dataArray['company_email'];
+        $insert->email = $dataArray['amount'];
         $insert->save();
     }
     public function editCompany($dataArray,$id){

@@ -52,6 +52,7 @@ $('document').ready(function(){
                 $('#json').val(data['state']);
                 $('#comp_date').val(data['date']);
                 $('#comp_email').val(data['email']);
+                $('#comp_amount').val(data['amount']);
                 setState(data['state']);
             },
             error : function(xhr,asd,error){
@@ -117,7 +118,8 @@ $('document').ready(function(){
                                 paid : $('#chk_lastpaid').prop('checked') ? $('#chk_lastpaid').val() : '',
                                 date : $('#comp_date').val(),
                                 email : $('#comp_email').val(),
-                                confirm : $('#chk_confirm').prop('checked') ? $('#chk_confirm').val() : ''
+                                confirm : $('#chk_confirm').prop('checked') ? $('#chk_confirm').val() : '',
+                                amount : $('#comp_amount').val()
                             },
                             success : function(response){
                                 console.log(response);
