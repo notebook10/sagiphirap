@@ -15,6 +15,7 @@
         <th>Contact Person</th>
         <th>Contact Number</th>
         <th>Vouch</th>
+        <th>Amount Donated</th>
         <th>Agent Name</th>
         <th>Action</th>
     </tr>
@@ -27,7 +28,8 @@
             <td>{{ substr(htmlspecialchars($value->description),0,50) }}...</td>
             <td>{{ htmlspecialchars($value->contact_person) }}</td>
             <td>{{ htmlspecialchars($value->contact_number) }}</td>
-            <td>{{ $value->confirm == 1 ? 'Approve' : 'Disapprove' }}</td>
+            <td>{{ $value->confirm == 1 ? 'Approve' : 'Undecided' }}</td>
+            <td>{{ $value->amount }}</td>
             <td>{{ \App\User::getuserbyid($value->agent_id)->firstname . " " . \App\User::getuserbyid($value->agent_id)->lastname }}</td>
             <td><button class="btn btn-success btnedit" data-id="{{ htmlspecialchars($value->id) }}" data-agent="{{ htmlspecialchars($value->agent_id) }}"
                 >EDIT</button> </td>

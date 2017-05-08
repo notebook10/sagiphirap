@@ -113,6 +113,7 @@ class AdminController extends Controller
     }
     public function submitfilter(Request $request){
         $company = new Company();
+        $user = new User();
         $filter = $request->selectReport;
         $start_date = $request->start_date;
         $end_date = $request->end_date;
@@ -120,18 +121,23 @@ class AdminController extends Controller
             case "all":
                 $filteredData = $company->getAll();
                 $title = "All Company Report";
+                $total = $company->getAllTotal();
                 break;
             case "paid":
                 $filteredData = $company->filter($filter,date('Y-m-d',strtotime($start_date)),date('Y-m-d',strtotime($end_date)));
                 $title = 'Paid Companies Report from ' . date('Y-M-d',strtotime($start_date)) . ' to ' . date('Y-M-d', strtotime($end_date));
+                $total = $company->getPaidTotal();
                 break;
             case 'confirmnotpaid':
                 $filteredData = $company->confirmed(1,0);
                 $title = 'Confirmed Companies but not yet Paid';
+                $total = 'Not Paid';
                 break;
             case 'agent':
                 $filteredData = $company->filterByAgent($request->input('agentInput'));
                 $title = 'Companies added by ' . $request->input('agentInput');
+                $agent = $user->getIDusingFirstFname($request->input('agentInput'));
+                $total = $company->getTotalById($agent->id);
                 break;
             default:
 
@@ -141,7 +147,8 @@ class AdminController extends Controller
             'paidcompanies' => $filteredData,
             'title' => $title,
             'start' => $start_date ? $start_date : '',
-            'end' => $end_date ? $end_date : ''
+            'end' => $end_date ? $end_date : '',
+            'total' => $total
         ];
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('pdf.paidreport',$dataArray);

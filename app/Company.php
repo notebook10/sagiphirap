@@ -58,12 +58,31 @@ class Company extends Model
     public function filterByAgent($firstname){
         $user = new User();
         $name = $user->getIDusingFname($firstname);
-        $id = "";
         foreach ($name as $index => $value){
             $id = $value->id;
         }
+//        $foo = DB::table($this->table)
+//            ->where('paid',1)
+//            ->where('agent_id',$id)
+//            ->sum('amount');
+//        dd($foo);
+        // Here
         return DB::table($this->table)
             ->where('agent_id',$id)
             ->get();
+    }
+    public function getAllTotal(){
+        return DB::table($this->table)
+            ->sum('amount');
+    }
+    public function getPaidTotal(){
+        return DB::table($this->table)
+            ->where('paid',1)
+            ->sum('amount');
+    }
+    public function getTotalById($agentID){
+        return DB::table($this->table)
+            ->where('agent_id',$agentID)
+            ->sum('amount');
     }
 }

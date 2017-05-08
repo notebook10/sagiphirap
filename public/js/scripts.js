@@ -186,6 +186,7 @@ $('document').ready(function(){
             $("#filterAgent").html("");
             $("#agentInput").val("");
         }else if(selected == 'agent'){
+            $('#start_date, #end_date').prop('disabled', true).val("");
             $("#filterAgent").append("<div class='col-xs-12'><div class='form-group'><label for='agentInput' class='control-label'>Filter by Agent Name:</label><input class='form-control' id='agentInput' name='agentInput' autocomplete='off'><ul class='ulAgent'></ul> </div> </div>");
         }
         else{
@@ -237,13 +238,13 @@ $('document').ready(function(){
     });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email").prop("disabled",true);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email, #comp_amount").prop("disabled",true);
         }else{
-            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email").prop("disabled",false);
+            $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email, #comp_amount").prop("disabled",false);
         }
     }
     function enableinput(){
-        $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address").prop("disabled",false);
+        $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email, #comp_amount").prop("disabled",false);
     }
 });
 
@@ -251,9 +252,9 @@ $('document').ready(function(){
 function loadClientCompaniesDataTable(){
     $('#tbl_company').DataTable({
         'aoColumnDefs' : [
-            { 'bSortable': false, 'aTargets': [ 4 ] },
+            { 'bSortable': false, 'aTargets': [ 5 ] },
             // { 'bSortable': false, 'aTargets': [ 8 ] },
-            { 'bSortable': false, 'aTargets': [ 7 ] }
+            { 'bSortable': false, 'aTargets': [ 8 ] }
         ]
     });
 }

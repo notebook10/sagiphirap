@@ -82,4 +82,9 @@ class User extends Authenticatable
             ->where('firstname',$firstname)
             ->get();
     }
+    public function getIDusingFirstFname($firstname){
+        return DB::table($this->table)
+            ->where('firstname',$firstname)
+            ->first();
+    }
 }
