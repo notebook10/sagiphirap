@@ -11,11 +11,11 @@
         .center{text-align: center;}
         .header{line-height: 5px;}
         .bgcolor{background: #d8d8d8;}
-        td,th{font-size: 13px;}
-        tr td:last-child{width:70px;padding: 2px;}
-        tr,td{text-align: center;padding: 10px;}
-        thead tr th{background-color: #d8d8d8;font-size: 14px; }
-        .right{float:right;}
+        /*td,th{font-size: 13px;}*/
+        /*tr td:last-child{width:70px;padding: 2px;}*/
+        /*tr,td{text-align: center;padding: 10px;}*/
+        /*thead tr th{background-color: #d8d8d8;font-size: 14px; }*/
+        /*.right{float:right;}*/
     </style>
 </head>
 <body>
@@ -24,7 +24,7 @@
     <p class="center header">Phone: (02) 910-4191</p>
     <div class="center bgcolor"><h2>{{ $title }}</h2></div>
     <div>
-        <table border="1">
+        <table border="0">
             <thead>
                 <tr>
                     {{--<th>ID</th>--}}

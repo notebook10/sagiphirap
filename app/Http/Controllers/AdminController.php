@@ -152,6 +152,7 @@ class AdminController extends Controller
         ];
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadView('pdf.paidreport',$dataArray);
+        $pdf->setPaper('A4', 'landscape');
         return $pdf->stream();
     }
     public function deleteuser(Request $request){

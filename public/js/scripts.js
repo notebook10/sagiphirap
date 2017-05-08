@@ -66,7 +66,6 @@ $('document').ready(function(){
             'comp_desc' : 'required',
             'comp_contact_person' : {required : true , minlength : 4},
             'comp_contact_number' : {
-                required : true,
                 number: true,
                 maxlength : 11,
                 minlength : 4
