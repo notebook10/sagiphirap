@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="comp_amount">Amount:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="comp_amount" name="comp_amount" placeholder="Enter Amount Donated">
+                                <input type="text" class="form-control" id="comp_amount" name="comp_amount" placeholder="Enter Amount Donated" value="0">
                             </div>
                         </div>
                     <hr>

@@ -235,6 +235,9 @@ $('document').ready(function(){
         $('#agentInput').val(value);
         $('.ulAgent').html('');
     });
+    $("#comp_amount").on("keydown", function(){
+        $(this).val($(this).val().replace(/\D/, ''));
+    });
     function disableinput($agentid){
         if(AUTH_ID != $agentid){
             $("#comp_name, #comp_contact_person, #comp_contact_number, #comp_address, button.checkbtn , #comp_date , #comp_email, #comp_amount").prop("disabled",true);
