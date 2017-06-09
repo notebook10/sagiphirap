@@ -107,7 +107,8 @@
                                 </button>
                                 <input type="checkbox" name="chk_confirm" id="chk_confirm" class="chkbox" value="1">
                             </div>
-                            <div class="col-xs-4">
+                            <div class="clearfix"></div>
+                            <div class="col-xs-12">
                                 {{-------------Break--------------}}
                                 <button type="button" id="btn_lastpaid" class="btn checkbtn center-block" data-to="chk_lastpaid" data-btn="default">
                                     <span class="glyphicon chk_lastpaid"></span> Last Paid

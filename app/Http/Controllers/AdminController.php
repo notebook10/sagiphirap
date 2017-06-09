@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Company;
+use App\Expenses;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -163,5 +164,50 @@ class AdminController extends Controller
         $user = new User();
         $keyword = $request->input('keyword');
         return $user->filterAgentsWithName($keyword);
+    }
+
+    public function expenses(){
+        $expenses = new Expenses();
+        $allExpenses = $expenses->getAllExpenses();
+        $dataArray = array(
+            'expenses' => $allExpenses
+        );
+        $theme = Theme::uses('default')->layout('default')->setTitle('Expenses');
+        return $theme->of('admin.expenses', $dataArray)->render();
+    }
+    public function getExpenses(Request $request){
+        $id =  $request->input('id');
+        $expenses = new Expenses();
+        $row = $expenses->getExpensesbyID($id);
+        $dataArray = [
+            'admin_id' => $row->admin_id,
+            'category' => $row->category,
+            'description' => $row->description,
+            'amount' => $row->amount,
+            'date' => $row->date
+
+        ];
+        return $dataArray;
+    }
+    public function submitExpenses(Request $request){
+        $ex_status = $request->input('ex_status');
+        $id = $request->input('id');
+        $data = array(
+//            'admin_id' => $request->input('admin_id'),
+            'admin_id' => Auth::user()->id,
+            'category' => $request->input('category'),
+            'description' => $request->input('description'),
+            'amount' => $request->input('amount'),
+            'date' => $request->input('expense_date')
+        );
+        $data2 = array(
+            'category' => $request->input('category'),
+            'description' => $request->input('description'),
+            'amount' => $request->input('amount'),
+            'date' => $request->input('expense_date')
+        );
+        $expenses = new Expenses();
+        $ex_status == 0 ? $expenses->addExpenses($data) : $expenses->updateExpenses($data2,$id);
+
     }
 }

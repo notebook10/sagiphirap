@@ -18,5 +18,9 @@ Route::group(['middleware' => ['auth']],function(){
         Route::post('submitfilter','AdminController@submitfilter');
         Route::post('deleteuser','AdminController@deleteuser');
         Route::post('sendKeyword','AdminController@sendKeyword');
+
+        Route::match(array('get','post'),'expenses','AdminController@expenses');
+        Route::match(array('get','post'),'getExpenses','AdminController@getExpenses');
+        Route::match(array('get','post'),'submitExpenses','AdminController@submitExpenses');
     });
 });

@@ -24,7 +24,8 @@
                             ?>
                             <?php
                             if(Auth::user()->user_type == 1){
-                                echo "<li><a href='users'><span class='glyphicon glyphicon-globe'></span> Users</a> </li>";
+                                echo "<li><a href='users'><span class='glyphicon glyphicon-globe'></span> Users</a> </li>
+                                      <li><a href='expenses'><span class='glyphicon glyphicon-usd'></span> Expenses</a></li>";
                             }
                             ?>
                             <li><a href="#" id="btnreport"><span class="glyphicon glyphicon-file"></span> Report </a></li>

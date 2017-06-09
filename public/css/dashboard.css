@@ -1,7 +1,7 @@
 #createAccount {
     cursor: pointer;
 }
-#addcompany {
+#addcompany, #addExpenses {
     margin-bottom: 10px;
 }
 .modal-header .close {

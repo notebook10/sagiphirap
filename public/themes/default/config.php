@@ -72,6 +72,7 @@ return array(
             $theme->asset()->add('js-register', 'js/register.js');
             $theme->asset()->add('js-scripts', 'js/scripts.js');
             $theme->asset()->add('js-users', 'js/users.js');
+            $theme->asset()->add('js-expenses', 'js/expenses.js');
             $theme->asset()->add('js-sweetalert', 'js/sweetalert.min.js');
         },
 
