@@ -28,7 +28,7 @@ use App\User;
             <td>{{ \App\User::getuserbyid($value->admin_id)->firstname . " " . \App\User::getuserbyid($value->admin_id)->lastname }}</td>
             <td>
                 <button class="btn btn-success editExpenses" data-id="{{ $value->id }}">Edit</button>
-                <button class="btn btn-danger deletExpenses" data-id="{{ $value->id }}">Delete</button>
+                {{--<button class="btn btn-danger deletExpenses" data-id="{{ $value->id }}">Delete</button>--}}
             </td>
         </tr>
     @endforeach
@@ -57,10 +57,11 @@ use App\User;
                             <select class="form-control" name="category" id="category">
                                 <option value="0" >Select Category</option>
                                 <option value="Allowance">Allowance</option>
-                                <option value="Bills">Bills</option>
-                                <option value="Utility">Utility</option>
-                                <option value="Driver">Driver's Fee</option>
+                                <option value="Commission">Commission</option>
+                                <option value="Fees">Fees</option>
                                 <option value="Gas">Gas</option>
+                                <option value="Supplies">Office Supplies</option>
+                                <option value="Utilities">Utilities</option>
                                 <option value="Others">Others</option>
                             </select>
                         </div>
