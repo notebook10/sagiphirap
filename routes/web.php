@@ -22,5 +22,6 @@ Route::group(['middleware' => ['auth']],function(){
         Route::match(array('get','post'),'expenses','AdminController@expenses');
         Route::match(array('get','post'),'getExpenses','AdminController@getExpenses');
         Route::match(array('get','post'),'submitExpenses','AdminController@submitExpenses');
+        Route::match(array('get','post'),'reportExpenses','AdminController@reportExpenses');
     });
 });

@@ -6,7 +6,8 @@ $("document").ready(function(){
 
         $('#ex_status').val(0);
         $('#expense_date').datepicker({
-            maxDate : new Date()
+            maxDate : new Date(),
+            dateFormat: 'yy-mm-dd'
         });
         $('.ex-modal-title').html('Add Expenses');
         $("#expensesModal").modal("show");
@@ -18,7 +19,8 @@ $("document").ready(function(){
         var id = $('#id').val();
         $('#ex_status').val(1);
         $('#expense_date').datepicker({
-            maxDate : new Date()
+            maxDate : new Date(),
+            dateFormat: 'yy-mm-dd'
         });
         $('.ex-modal-title').html('Edit Expenses');
         $("#expensesModal").modal("show");
@@ -34,7 +36,7 @@ $("document").ready(function(){
                 $('#category').val(data['category']);
                 $('#description').val(data['description']);
                 $('#amount').val(data['amount']);
-                $('#expense_date').val(data['date']);
+                $('#expense_date').val(data['created_at']);
                 // setState(data['state']);
             },
             error : function(xhr,asd,error){
@@ -43,7 +45,56 @@ $("document").ready(function(){
         });
     });
 
-
+    $("#btnSubmitFilterExpense").on("click", function(e){
+        var selected = $("#selectReportExpense").val();
+        var selectedCat = $("#filterReportExpense").val();
+        if(selected == null){
+            swal("Error","Please select a filter","error");
+            e.preventDefault();
+        }else if(selected == 'byDate'){
+            if($('#start_date_expense').val() == '' || $('#end_date_expense').val() == ''){
+                swal("Error","Please complete the filter form","error");
+                e.preventDefault();
+            }
+        }else if(selected == 'byCategory'){
+            if(selectedCat == null){
+                swal("Error","Please select category","error");
+                e.preventDefault();
+            }
+        }
+    });
+    $('#selectReportExpense').on('change', function(){
+        var selected = $(this).val();
+        if(selected == 'allExpense'){
+            $('#start_date_expense, #end_date_expense').prop('disabled', true).val("");
+            $('#filterCategory').html('');
+        }else if(selected == 'byDateExpense'){
+            $('#start_date_expense, #end_date_expense').prop('disabled', false).val("");
+            $('#filterCategory').html('');
+        }else if(selected == 'byCategory'){
+            $('#start_date, #end_date').prop('disabled', true).val("");
+            $("#filterCategory").append
+            (
+                "<div class='col-xs-12'><div class='form-group'>" +
+                "<label class='control-label' for='category'>Category</label>" +
+                "<select class='form-control' name='filterReportExpense' id='filterReportExpense'>" +
+                    "<option disabled selected> -- Select Category --</option>" +
+                    "<option value='Allowance'>Allowance</option>" +
+                    "<option value='Commission'>Commission</option>" +
+                    "<option value='Fees'>Fees</option>" +
+                    "<option value='Gas'>Gas</option>" +
+                    "<option value='Supplies'>Office Supplies</option>" +
+                    "<option value='Utilities'>Utilities</option>" +
+                    "<option value='Others'>Others</option>" +
+                "</select></div> </div>"
+            );
+        }
+        else{
+            $('#start_date, #end_date').prop('disabled', false);
+            $("#filterAgent").html("");
+            $("#agentInput").val("");
+        }
+    });
     $('#frm_expenses').validate({
 
         rules : {
@@ -105,6 +156,19 @@ $("document").ready(function(){
                     }
                 });
         }
+    });
+
+    $("#reportExpenses").on("click", function(){
+        $('#start_date_expense').datepicker({
+            maxDate : new Date(),
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#end_date_expense').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#start_date_expense, #end_date_expense').val('');
+        $('#selectReportExpense').removeAttr('selected').find('option:first').attr('selected', 'selected');
+        $("#expenseReportModal").modal("show");
     });
 });
 

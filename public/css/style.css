@@ -151,3 +151,7 @@ button.close {
 button.close:hover {
     color: red;
 }
+
+#reportExpenses {
+    float: right;
+}

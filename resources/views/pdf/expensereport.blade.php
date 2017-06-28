@@ -24,38 +24,31 @@
     <p class="center header">Phone: (02) 910-4191</p>
     <div class="center bgcolor"><h2>{{ $title }}</h2></div>
     <div>
-        <table border="1">
+        <table border="1" width="100%">
             <thead>
                 <tr>
                     {{--<th>ID</th>--}}
-                    <th>Company Name</th>
-                    <th>Company Email</th>
-                    <th>Contact Person</th>
-                    <th>Contact Number</th>
-                    <th>Contact Address</th>
-                    <th>Amount Donated</th>
-                    <th>Added By</th>
-                    <th>Date Added (yyyy-mm-dd)</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Admin</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($paidcompanies as $value)
+            @foreach($allExpenses as $value)
                 <tr>
-                    {{--<td>{{ $value->id }}</td>--}}
-                    <td>{{ $value->name }}</td>
-                    <td>{{ $value->company_email }}</td>
-                    <td>{{ $value->contact_person }}</td>
-                    <td>{{ $value->contact_number }}</td>
-                    <td>{{ $value->contact_address }}</td>
-                    <td>{{ 'Php ' . number_format($value->amount) }}</td>
-                    <td>{{ User::getuserbyid($value->agent_id)->firstname . ' ' . User::getuserbyid($value->agent_id)->lastname }}</td>
-                    <td><?php echo date('Y-m-d',strtotime($value->created_at)); ?></td>
+                    <td>{{ $value->category }}</td>
+                    <td>{{ $value->description }}</td>
+                    <td>{{ $value->amount }}</td>
+                    <td>{{ date('Y-m-d',strtotime($value->created_at)) }}</td>
+                    <td>{{ User::getuserbyid($value->admin_id)->firstname . ' ' . User::getuserbyid($value->admin_id)->lastname }}</td>
                 </tr>
             @endforeach
             </tbody>
         </table>
         <div class="">
-            <p>Total : {{ $total }} </p>
+            <p>Total : {{ $totalexpense }} </p>
         </div>
     </div>
 </body>

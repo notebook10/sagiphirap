@@ -5,6 +5,7 @@ use App\User;
 <style>td{text-align: center;}</style>
 <h2>List of Expenses</h2>
 <button id="addExpenses" class="btn btn-primary ">ADD EXPENSES</button>
+<button id="reportExpenses" class="btn btn-primary">PRINT REPORT</button>
 <input type="hidden" id="expense_auth_id" value="{{ Auth::user()->id }}" data-usertype="{{ Auth::user()->user_type }}">
 <table id="tbl_expenses" class="display" cellspacing="0" width="100%">
     <thead>
@@ -23,7 +24,7 @@ use App\User;
             <td>{{ $value->category }}</td>
             <td>{{ $value->description }}</td>
             <td>{{ $value->amount }}</td>
-            <td>{{ $value->date }}</td>
+            <td>{{ date('Y-m-d',strtotime($value->created_at)) }}</td>
             {{--<td>sample</td>--}}
             <td>{{ \App\User::getuserbyid($value->admin_id)->firstname . " " . \App\User::getuserbyid($value->admin_id)->lastname }}</td>
             <td>
@@ -94,6 +95,56 @@ use App\User;
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Report-->
+<div id="expenseReportModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close_modal" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Expenses List Report</h3>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="reportExpenses" id="frmFilterExpense">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label" for="selectReportExpense">Filter:</label>
+                            <select class="form-control" name="selectReportExpense" id="selectReportExpense">
+                                <option disabled selected> -- Select --</option>
+                                <option value="allExpense">All Expenses</option>
+                                <option value="byDateExpense">All Expenses by Date</option>
+                                <option value="byCategory">All Expenses by Category</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="filterCategory"></div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="start_date_expense">Start Date:</label>
+                            <input class="form-control" placeholder="Start Date" type="text" name="start_date_expense" id="start_date_expense">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="end_date_expense">End Date:</label>
+                            <input class="form-control" placeholder="End Date" type="text" name="end_date_expense" id="end_date_expense">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Print" class="btn btn-primary center-block" formtarget="_blank" id="btnSubmitFilterExpense">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

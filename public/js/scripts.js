@@ -39,8 +39,13 @@ $('document').ready(function(){
                 id : id
             },
             success : function(data){
-                var agentid = data['agent_id'];
-                disableinput(agentid);
+                if(AUTH_ID == 35){
+                    enableinput();
+                } else {
+                    var agentid = data['agent_id'];
+                    disableinput(agentid);
+                }
+
                 $('h4.modal-title').text(data['name']);
                 $('#companyModal').modal('show');
                 $('#comp_name').val(data['name']);

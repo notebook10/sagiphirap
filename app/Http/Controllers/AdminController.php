@@ -184,7 +184,7 @@ class AdminController extends Controller
             'category' => $row->category,
             'description' => $row->description,
             'amount' => $row->amount,
-            'date' => $row->date
+            'created_at' => $row->created_at
 
         ];
         return $dataArray;
@@ -198,16 +198,56 @@ class AdminController extends Controller
             'category' => $request->input('category'),
             'description' => $request->input('description'),
             'amount' => $request->input('amount'),
-            'date' => $request->input('expense_date')
+            'created_at' => $request->input('expense_date')
         );
         $data2 = array(
             'category' => $request->input('category'),
             'description' => $request->input('description'),
             'amount' => $request->input('amount'),
-            'date' => $request->input('expense_date')
+            'created_at' => $request->input('expense_date')
         );
         $expenses = new Expenses();
         $ex_status == 0 ? $expenses->addExpenses($data) : $expenses->updateExpenses($data2,$id);
 
+    }
+    public function reportExpenses(Request $request){
+        $expenses = new Expenses();
+        $filter = $request->selectReportExpense;
+        $start_date_expense = $request->start_date_expense;
+        $end_date_expense = $request->end_date_expense;
+        $Category = $request->filterReportExpense;
+        $filteredExpense = "";
+        $totalExpense = "";
+        $expenseTitle = "";
+        switch($filter){
+            case "allExpense":
+                $filteredExpense = $expenses->getAll();
+                $expenseTitle = "All Expenses Report";
+                $totalExpense = $expenses->getTotalExpense();
+                break;
+            case "byDateExpense":
+                $filteredExpense = $expenses->filter($filter,date('Y-m-d',strtotime($start_date_expense)),date('Y-m-d',strtotime($end_date_expense)));
+                $expenseTitle = "All Expenses Report from "  . date('Y-M-d',strtotime($start_date_expense)) . ' to ' . date('Y-M-d', strtotime($end_date_expense));
+                $totalExpense = $expenses->getTotalExpensebyDate($filter,date('Y-m-d',strtotime($start_date_expense)),date('Y-m-d',strtotime($end_date_expense)));
+                break;
+            case "byCategory":
+                $filteredExpense = $expenses->getTotalExpenseByCategory($Category);
+                $expenseTitle = "All Expenses Report from " . $filter;
+                $totalExpense = $expenses->getTotalExpense();
+                break;
+            default;
+                break;
+        }
+        $dataArray = [
+            'allExpenses' => $filteredExpense,
+            'title' => $expenseTitle,
+            'startDate' => $start_date_expense ? $start_date_expense : '',
+            'endDate' => $end_date_expense ? $end_date_expense : '',
+            'totalexpense' => $totalExpense
+        ];
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdf.expensereport',$dataArray);
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->stream();
     }
 }
